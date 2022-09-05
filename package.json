@@ -1,0 +1,17 @@
+{
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "Comments API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "comments"
+  ],
+  "author": "Justice Ogbonna",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.5.2"
+  }
+}
