@@ -1,5 +1,9 @@
 #/bin/bash
 
+# Server Generator
+npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g go-server -o servers/go
+
+# Client Generator
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g android -o clients/android
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g dart -o clients/dart
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g go -o clients/go
