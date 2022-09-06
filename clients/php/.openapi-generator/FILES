@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .travis.yml
 README.md
@@ -29,12 +28,3 @@ lib/Model/Tag.php
 lib/Model/User.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/PetApiTest.php
-test/Api/StoreApiTest.php
-test/Api/UserApiTest.php
-test/Model/ApiResponseTest.php
-test/Model/CategoryTest.php
-test/Model/OrderTest.php
-test/Model/PetTest.php
-test/Model/TagTest.php
-test/Model/UserTest.php

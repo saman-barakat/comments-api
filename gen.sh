@@ -7,7 +7,7 @@ npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g go-server -
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g protobuf-schema -o schema/protobuf
 
 # Docs
-npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g html22 -o docs/html2
+npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g html2 -o docs/html2
 
 # Client Generator
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g android -o clients/android
