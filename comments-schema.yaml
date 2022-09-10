@@ -135,7 +135,7 @@ paths:
                 content:
                   type: string
                 status:
-                  type: boolean
+                  type: string
                   enum:
                     - Draft
                     - InReview        
@@ -278,7 +278,7 @@ paths:
                 content:
                   type: string
                 commentStatus:
-                  type: boolean
+                  type: string
                   enum:
                   - Disabled
                   - RequireReview      
@@ -414,7 +414,7 @@ paths:
                 authToken:
                   type: string
                 commentStatus:
-                  type: boolean
+                  type: string
                   enum:
                   - Disabled
                   - RequireReview      
@@ -611,7 +611,7 @@ components:
         content:
           type: string
         status:
-          type: boolean
+          type: string
           enum:
             - Draft
             - InReview        
@@ -652,7 +652,7 @@ components:
         content:
           type: string
         commentStatus:
-          type: boolean
+          type: string
           enum:
             - Disabled
             - RequireReview      
@@ -726,7 +726,7 @@ components:
         authToken:
           type: string
         commentStatus:
-          type: boolean
+          type: string
           enum:
             - Disabled
             - RequireReview      
