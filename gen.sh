@@ -13,7 +13,6 @@ npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g html
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g android -o clients/android
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g dart -o clients/dart
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g go -o clients/go
-npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g java -o clients/java
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g javascript -o clients/javascript
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g php -o clients/php
 npx @openapitools/openapi-generator-cli generate -i comments-schema.yaml -g python -o clients/python
