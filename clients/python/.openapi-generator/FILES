@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Blog.md
@@ -41,15 +40,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_blog.py
-test/test_blog_api.py
-test/test_comment.py
-test/test_comment_api.py
-test/test_media.py
-test/test_post.py
-test/test_post_api.py
-test/test_role.py
-test/test_user.py
-test/test_user_api.py
-test/test_verification_status.py
 tox.ini

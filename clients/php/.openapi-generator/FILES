@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .travis.yml
 README.md
@@ -33,14 +32,3 @@ lib/Model/User.php
 lib/Model/VerificationStatus.php
 lib/ObjectSerializer.php
 phpunit.xml.dist
-test/Api/BlogApiTest.php
-test/Api/CommentApiTest.php
-test/Api/PostApiTest.php
-test/Api/UserApiTest.php
-test/Model/BlogTest.php
-test/Model/CommentTest.php
-test/Model/MediaTest.php
-test/Model/PostTest.php
-test/Model/RoleTest.php
-test/Model/UserTest.php
-test/Model/VerificationStatusTest.php

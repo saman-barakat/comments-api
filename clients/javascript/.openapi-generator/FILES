@@ -1,6 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/Blog.md
@@ -30,14 +29,3 @@ src/model/Post.js
 src/model/Role.js
 src/model/User.js
 src/model/VerificationStatus.js
-test/api/BlogApi.spec.js
-test/api/CommentApi.spec.js
-test/api/PostApi.spec.js
-test/api/UserApi.spec.js
-test/model/Blog.spec.js
-test/model/Comment.spec.js
-test/model/Media.spec.js
-test/model/Post.spec.js
-test/model/Role.spec.js
-test/model/User.spec.js
-test/model/VerificationStatus.spec.js

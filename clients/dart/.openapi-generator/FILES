@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 analysis_options.yaml
@@ -36,14 +35,3 @@ lib/model/role.dart
 lib/model/user.dart
 lib/model/verification_status.dart
 pubspec.yaml
-test/blog_api_test.dart
-test/blog_test.dart
-test/comment_api_test.dart
-test/comment_test.dart
-test/media_test.dart
-test/post_api_test.dart
-test/post_test.dart
-test/role_test.dart
-test/user_api_test.dart
-test/user_test.dart
-test/verification_status_test.dart

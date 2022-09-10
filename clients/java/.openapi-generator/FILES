@@ -1,6 +1,5 @@
 .github/workflows/maven.yml
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -59,14 +58,3 @@ src/main/java/org/openapitools/client/model/Post.java
 src/main/java/org/openapitools/client/model/Role.java
 src/main/java/org/openapitools/client/model/User.java
 src/main/java/org/openapitools/client/model/VerificationStatus.java
-src/test/java/org/openapitools/client/api/BlogApiTest.java
-src/test/java/org/openapitools/client/api/CommentApiTest.java
-src/test/java/org/openapitools/client/api/PostApiTest.java
-src/test/java/org/openapitools/client/api/UserApiTest.java
-src/test/java/org/openapitools/client/model/BlogTest.java
-src/test/java/org/openapitools/client/model/CommentTest.java
-src/test/java/org/openapitools/client/model/MediaTest.java
-src/test/java/org/openapitools/client/model/PostTest.java
-src/test/java/org/openapitools/client/model/RoleTest.java
-src/test/java/org/openapitools/client/model/UserTest.java
-src/test/java/org/openapitools/client/model/VerificationStatusTest.java
