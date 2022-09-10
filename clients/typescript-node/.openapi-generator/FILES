@@ -1,0 +1,17 @@
+.gitignore
+.openapi-generator-ignore
+api.ts
+api/apis.ts
+api/blogApi.ts
+api/commentApi.ts
+api/postApi.ts
+api/userApi.ts
+git_push.sh
+model/blog.ts
+model/comment.ts
+model/media.ts
+model/models.ts
+model/post.ts
+model/role.ts
+model/user.ts
+model/verificationStatus.ts
