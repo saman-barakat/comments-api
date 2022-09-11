@@ -1,0 +1,4 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: clients/typescript-node
+generatorName: typescript-node
+additionalProperties:

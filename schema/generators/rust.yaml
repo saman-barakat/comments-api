@@ -1,0 +1,4 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: clients/rust
+generatorName: rust
+additionalProperties:

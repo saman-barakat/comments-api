@@ -1,0 +1,4 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: schema/protobuf
+generatorName: protobuf-schema
+additionalProperties:

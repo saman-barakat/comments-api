@@ -1,0 +1,4 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: clients/javascript
+generatorName: javascript
+additionalProperties:
