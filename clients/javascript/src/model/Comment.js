@@ -22,6 +22,7 @@ import Media from './Media';
 class Comment {
     /**
      * Constructs a new <code>Comment</code>.
+     * A user-generated comment.
      * @alias module:model/Comment
      */
     constructor() { 
@@ -95,16 +96,19 @@ class Comment {
 }
 
 /**
+ * The ID of this comment.
  * @member {String} id
  */
 Comment.prototype['id'] = undefined;
 
 /**
+ * The ID of the author.
  * @member {String} userId
  */
 Comment.prototype['userId'] = undefined;
 
 /**
+ * The ID of the post hosting this comment.
  * @member {String} postId
  */
 Comment.prototype['postId'] = undefined;
@@ -192,7 +196,13 @@ Comment['StatusEnum'] = {
      * value: "Published"
      * @const
      */
-    "Published": "Published"
+    "Published": "Published",
+
+    /**
+     * value: "Deleted"
+     * @const
+     */
+    "Deleted": "Deleted"
 };
 
 

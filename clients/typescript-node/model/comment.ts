@@ -13,9 +13,21 @@
 import { RequestFile } from './models';
 import { Media } from './media';
 
+/**
+* A user-generated comment.
+*/
 export class Comment {
+    /**
+    * The ID of this comment.
+    */
     'id'?: string;
+    /**
+    * The ID of the author.
+    */
     'userId'?: string;
+    /**
+    * The ID of the post hosting this comment.
+    */
     'postId'?: string;
     'blogId'?: string;
     'parentId'?: string;
@@ -107,6 +119,7 @@ export namespace Comment {
         Draft = <any> 'Draft',
         InReview = <any> 'InReview',
         Flagged = <any> 'Flagged',
-        Published = <any> 'Published'
+        Published = <any> 'Published',
+        Deleted = <any> 'Deleted'
     }
 }

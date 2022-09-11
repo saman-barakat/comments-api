@@ -65,6 +65,7 @@ class Comment(ModelNormal):
             'INREVIEW': "InReview",
             'FLAGGED': "Flagged",
             'PUBLISHED': "Published",
+            'DELETED': "Deleted",
         },
     }
 
@@ -171,9 +172,9 @@ class Comment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            user_id (str): [optional]  # noqa: E501
-            post_id (str): [optional]  # noqa: E501
+            id (str): The ID of this comment.. [optional]  # noqa: E501
+            user_id (str): The ID of the author.. [optional]  # noqa: E501
+            post_id (str): The ID of the post hosting this comment.. [optional]  # noqa: E501
             blog_id (str): [optional]  # noqa: E501
             parent_id (str): [optional]  # noqa: E501
             author_display_name (str): [optional]  # noqa: E501
@@ -269,9 +270,9 @@ class Comment(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): [optional]  # noqa: E501
-            user_id (str): [optional]  # noqa: E501
-            post_id (str): [optional]  # noqa: E501
+            id (str): The ID of this comment.. [optional]  # noqa: E501
+            user_id (str): The ID of the author.. [optional]  # noqa: E501
+            post_id (str): The ID of the post hosting this comment.. [optional]  # noqa: E501
             blog_id (str): [optional]  # noqa: E501
             parent_id (str): [optional]  # noqa: E501
             author_display_name (str): [optional]  # noqa: E501

@@ -14,11 +14,15 @@ require 'date'
 require 'time'
 
 module OpenapiClient
+  # A user-generated comment.
   class Comment
+    # The ID of this comment.
     attr_accessor :id
 
+    # The ID of the author.
     attr_accessor :user_id
 
+    # The ID of the post hosting this comment.
     attr_accessor :post_id
 
     attr_accessor :blog_id
@@ -190,7 +194,7 @@ module OpenapiClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      status_validator = EnumAttributeValidator.new('String', ["Draft", "InReview", "Flagged", "Published"])
+      status_validator = EnumAttributeValidator.new('String', ["Draft", "InReview", "Flagged", "Published", "Deleted"])
       return false unless status_validator.valid?(@status)
       true
     end
@@ -198,7 +202,7 @@ module OpenapiClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] status Object to be assigned
     def status=(status)
-      validator = EnumAttributeValidator.new('String', ["Draft", "InReview", "Flagged", "Published"])
+      validator = EnumAttributeValidator.new('String', ["Draft", "InReview", "Flagged", "Published", "Deleted"])
       unless validator.valid?(status)
         fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
       end

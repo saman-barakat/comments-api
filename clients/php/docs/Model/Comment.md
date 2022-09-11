@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  | [optional]
-**user_id** | **string** |  | [optional]
-**post_id** | **string** |  | [optional]
+**id** | **string** | The ID of this comment. | [optional]
+**user_id** | **string** | The ID of the author. | [optional]
+**post_id** | **string** | The ID of the post hosting this comment. | [optional]
 **blog_id** | **string** |  | [optional]
 **parent_id** | **string** |  | [optional]
 **author_display_name** | **string** |  | [optional]

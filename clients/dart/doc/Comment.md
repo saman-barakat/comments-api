@@ -8,9 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] 
-**userId** | **String** |  | [optional] 
-**postId** | **String** |  | [optional] 
+**id** | **String** | The ID of this comment. | [optional] 
+**userId** | **String** | The ID of the author. | [optional] 
+**postId** | **String** | The ID of the post hosting this comment. | [optional] 
 **blogId** | **String** |  | [optional] 
 **parentId** | **String** |  | [optional] 
 **authorDisplayName** | **String** |  | [optional] 

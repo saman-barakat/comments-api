@@ -18,7 +18,10 @@ import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
-@ApiModel(description = "")
+/**
+ * A user-generated comment.
+ **/
+@ApiModel(description = "A user-generated comment.")
 public class Comment implements Serializable {
   
   @SerializedName("id")
@@ -40,7 +43,7 @@ public class Comment implements Serializable {
   @SerializedName("content")
   private String content = null;
   public enum StatusEnum {
-     Draft,  InReview,  Flagged,  Published, 
+     Draft,  InReview,  Flagged,  Published,  Deleted, 
   };
   @SerializedName("status")
   private StatusEnum status = null;
@@ -52,8 +55,9 @@ public class Comment implements Serializable {
   private Media media = null;
 
   /**
+   * The ID of this comment.
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of this comment.")
   public String getId() {
     return id;
   }
@@ -62,8 +66,9 @@ public class Comment implements Serializable {
   }
 
   /**
+   * The ID of the author.
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the author.")
   public String getUserId() {
     return userId;
   }
@@ -72,8 +77,9 @@ public class Comment implements Serializable {
   }
 
   /**
+   * The ID of the post hosting this comment.
    **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(value = "The ID of the post hosting this comment.")
   public String getPostId() {
     return postId;
   }

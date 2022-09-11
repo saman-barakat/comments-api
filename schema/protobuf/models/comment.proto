@@ -18,10 +18,13 @@ import public "models/media.proto";
 
 message Comment {
 
+  // The ID of this comment.
   string id = 1;
 
+  // The ID of the author.
   string userId = 2;
 
+  // The ID of the post hosting this comment.
   string postId = 3;
 
   string blogId = 4;
@@ -42,6 +45,7 @@ message Comment {
     StatusEnum_INREVIEW = 2;
     StatusEnum_FLAGGED = 3;
     StatusEnum_PUBLISHED = 4;
+    StatusEnum_DELETED = 5;
   }
 
   StatusEnum status = 10;

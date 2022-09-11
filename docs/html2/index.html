@@ -874,13 +874,16 @@ ul.nav-tabs {
   "type" : "object",
   "properties" : {
     "id" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of this comment."
     },
     "userId" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of the author."
     },
     "postId" : {
-      "type" : "string"
+      "type" : "string",
+      "description" : "The ID of the post hosting this comment."
     },
     "blogId" : {
       "type" : "string"
@@ -904,7 +907,7 @@ ul.nav-tabs {
     },
     "status" : {
       "type" : "string",
-      "enum" : [ "Draft", "InReview", "Flagged", "Published" ]
+      "enum" : [ "Draft", "InReview", "Flagged", "Published", "Deleted" ]
     },
     "downvoteCount" : {
       "type" : "integer"
@@ -914,6 +917,26 @@ ul.nav-tabs {
     },
     "media" : {
       "$ref" : "#/components/schemas/Media"
+    }
+  },
+  "description" : "A user-generated comment.",
+  "example" : {
+    "id" : "sWT2a92sQX12qH",
+    "userId" : "johnSmith@",
+    "authorDisplayName" : "John Smith",
+    "postId" : "how to make a fish climb a mountain",
+    "blogId" : "climbing-fishes.com",
+    "content" : "Is that really a fish going up that hill??",
+    "upvoteCount" : 1683,
+    "downvoteCount" : 56,
+    "status" : "Published",
+    "created_timestamp" : "2000-01-23T04:56:07.000+00:00",
+    "modified_timestamp" : "2000-01-23T04:56:07.000+00:00",
+    "media" : {
+      "name" : "climbing-fish.png",
+      "id" : "climbing-fish.png",
+      "type" : "PNG/Image",
+      "content" : "byte-content"
     }
   },
   "xml" : {
@@ -3314,24 +3337,23 @@ ID of blog that needs to be updated
  -H "Content-Type: application/json,application/xml" \
  "http://localhost:8080/comment" \
  -d '{
+  &quot;id&quot; : &quot;sWT2a92sQX12qH&quot;,
+  &quot;userId&quot; : &quot;johnSmith@&quot;,
+  &quot;authorDisplayName&quot; : &quot;John Smith&quot;,
+  &quot;postId&quot; : &quot;how to make a fish climb a mountain&quot;,
+  &quot;blogId&quot; : &quot;climbing-fishes.com&quot;,
+  &quot;content&quot; : &quot;Is that really a fish going up that hill??&quot;,
+  &quot;upvoteCount&quot; : 1683,
+  &quot;downvoteCount&quot; : 56,
+  &quot;status&quot; : &quot;Published&quot;,
   &quot;created_timestamp&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
-  &quot;postId&quot; : &quot;postId&quot;,
-  &quot;media&quot; : {
-    &quot;name&quot; : &quot;name&quot;,
-    &quot;id&quot; : &quot;id&quot;,
-    &quot;type&quot; : &quot;type&quot;,
-    &quot;content&quot; : &quot;content&quot;
-  },
-  &quot;authorDisplayName&quot; : &quot;authorDisplayName&quot;,
-  &quot;userId&quot; : &quot;userId&quot;,
-  &quot;parentId&quot; : &quot;parentId&quot;,
-  &quot;content&quot; : &quot;content&quot;,
   &quot;modified_timestamp&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
-  &quot;upvoteCount&quot; : 6,
-  &quot;downvoteCount&quot; : 0,
-  &quot;id&quot; : &quot;id&quot;,
-  &quot;blogId&quot; : &quot;blogId&quot;,
-  &quot;status&quot; : &quot;Draft&quot;
+  &quot;media&quot; : {
+    &quot;name&quot; : &quot;climbing-fish.png&quot;,
+    &quot;id&quot; : &quot;climbing-fish.png&quot;,
+    &quot;type&quot; : &quot;PNG/Image&quot;,
+    &quot;content&quot; : &quot;byte-content&quot;
+  }
 }' \
  -d '&lt;Comment&gt;
   &lt;id&gt;aeiou&lt;/id&gt;
@@ -4553,24 +4575,23 @@ ID of comment to return
  -H "Content-Type: application/json,application/xml" \
  "http://localhost:8080/comment" \
  -d '{
+  &quot;id&quot; : &quot;sWT2a92sQX12qH&quot;,
+  &quot;userId&quot; : &quot;johnSmith@&quot;,
+  &quot;authorDisplayName&quot; : &quot;John Smith&quot;,
+  &quot;postId&quot; : &quot;how to make a fish climb a mountain&quot;,
+  &quot;blogId&quot; : &quot;climbing-fishes.com&quot;,
+  &quot;content&quot; : &quot;Is that really a fish going up that hill??&quot;,
+  &quot;upvoteCount&quot; : 1683,
+  &quot;downvoteCount&quot; : 56,
+  &quot;status&quot; : &quot;Published&quot;,
   &quot;created_timestamp&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
-  &quot;postId&quot; : &quot;postId&quot;,
-  &quot;media&quot; : {
-    &quot;name&quot; : &quot;name&quot;,
-    &quot;id&quot; : &quot;id&quot;,
-    &quot;type&quot; : &quot;type&quot;,
-    &quot;content&quot; : &quot;content&quot;
-  },
-  &quot;authorDisplayName&quot; : &quot;authorDisplayName&quot;,
-  &quot;userId&quot; : &quot;userId&quot;,
-  &quot;parentId&quot; : &quot;parentId&quot;,
-  &quot;content&quot; : &quot;content&quot;,
   &quot;modified_timestamp&quot; : &quot;2000-01-23T04:56:07.000+00:00&quot;,
-  &quot;upvoteCount&quot; : 6,
-  &quot;downvoteCount&quot; : 0,
-  &quot;id&quot; : &quot;id&quot;,
-  &quot;blogId&quot; : &quot;blogId&quot;,
-  &quot;status&quot; : &quot;Draft&quot;
+  &quot;media&quot; : {
+    &quot;name&quot; : &quot;climbing-fish.png&quot;,
+    &quot;id&quot; : &quot;climbing-fish.png&quot;,
+    &quot;type&quot; : &quot;PNG/Image&quot;,
+    &quot;content&quot; : &quot;byte-content&quot;
+  }
 }' \
  -d '&lt;Comment&gt;
   &lt;id&gt;aeiou&lt;/id&gt;

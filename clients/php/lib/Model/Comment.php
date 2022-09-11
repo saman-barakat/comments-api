@@ -36,6 +36,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * Comment Class Doc Comment
  *
  * @category Class
+ * @description A user-generated comment.
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -225,6 +226,7 @@ class Comment implements ModelInterface, ArrayAccess, \JsonSerializable
     public const STATUS_IN_REVIEW = 'InReview';
     public const STATUS_FLAGGED = 'Flagged';
     public const STATUS_PUBLISHED = 'Published';
+    public const STATUS_DELETED = 'Deleted';
 
     /**
      * Gets allowable values of the enum
@@ -238,6 +240,7 @@ class Comment implements ModelInterface, ArrayAccess, \JsonSerializable
             self::STATUS_IN_REVIEW,
             self::STATUS_FLAGGED,
             self::STATUS_PUBLISHED,
+            self::STATUS_DELETED,
         ];
     }
 
@@ -317,7 +320,7 @@ class Comment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets id
      *
-     * @param string|null $id id
+     * @param string|null $id The ID of this comment.
      *
      * @return self
      */
@@ -341,7 +344,7 @@ class Comment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets user_id
      *
-     * @param string|null $user_id user_id
+     * @param string|null $user_id The ID of the author.
      *
      * @return self
      */
@@ -365,7 +368,7 @@ class Comment implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets post_id
      *
-     * @param string|null $post_id post_id
+     * @param string|null $post_id The ID of the post hosting this comment.
      *
      * @return self
      */

@@ -28,6 +28,7 @@ class Comment {
     this.media,
   });
 
+  /// The ID of this comment.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -36,6 +37,7 @@ class Comment {
   ///
   String? id;
 
+  /// The ID of the author.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -44,6 +46,7 @@ class Comment {
   ///
   String? userId;
 
+  /// The ID of the post hosting this comment.
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
   /// does not include a default value (using the "default:" property), however, the generated
@@ -333,6 +336,7 @@ class CommentStatusEnum {
   static const inReview = CommentStatusEnum._(r'InReview');
   static const flagged = CommentStatusEnum._(r'Flagged');
   static const published = CommentStatusEnum._(r'Published');
+  static const deleted = CommentStatusEnum._(r'Deleted');
 
   /// List of all possible values in this [enum][CommentStatusEnum].
   static const values = <CommentStatusEnum>[
@@ -340,6 +344,7 @@ class CommentStatusEnum {
     inReview,
     flagged,
     published,
+    deleted,
   ];
 
   static CommentStatusEnum? fromJson(dynamic value) => CommentStatusEnumTypeTransformer().decode(value);
@@ -382,6 +387,7 @@ class CommentStatusEnumTypeTransformer {
         case r'InReview': return CommentStatusEnum.inReview;
         case r'Flagged': return CommentStatusEnum.flagged;
         case r'Published': return CommentStatusEnum.published;
+        case r'Deleted': return CommentStatusEnum.deleted;
         default:
           if (!allowNull) {
             throw ArgumentError('Unknown enum value to decode: $data');

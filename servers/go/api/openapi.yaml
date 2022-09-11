@@ -595,30 +595,33 @@ components:
       description: Blog object that needs to be added
   schemas:
     Comment:
+      description: A user-generated comment.
       example:
+        id: sWT2a92sQX12qH
+        userId: johnSmith@
+        authorDisplayName: John Smith
+        postId: how to make a fish climb a mountain
+        blogId: climbing-fishes.com
+        content: Is that really a fish going up that hill??
+        upvoteCount: 1683
+        downvoteCount: 56
+        status: Published
         created_timestamp: 2000-01-23T04:56:07.000+00:00
-        postId: postId
-        media:
-          name: name
-          id: id
-          type: type
-          content: content
-        authorDisplayName: authorDisplayName
-        userId: userId
-        parentId: parentId
-        content: content
         modified_timestamp: 2000-01-23T04:56:07.000+00:00
-        upvoteCount: 6
-        downvoteCount: 0
-        id: id
-        blogId: blogId
-        status: Draft
+        media:
+          name: climbing-fish.png
+          id: climbing-fish.png
+          type: PNG/Image
+          content: byte-content
       properties:
         id:
+          description: The ID of this comment.
           type: string
         userId:
+          description: The ID of the author.
           type: string
         postId:
+          description: The ID of the post hosting this comment.
           type: string
         blogId:
           type: string
@@ -640,6 +643,7 @@ components:
           - InReview
           - Flagged
           - Published
+          - Deleted
           type: string
         downvoteCount:
           type: integer
@@ -651,11 +655,6 @@ components:
       xml:
         name: Comment
     Media:
-      example:
-        name: name
-        id: id
-        type: type
-        content: content
       properties:
         id:
           type: string

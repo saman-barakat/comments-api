@@ -1,12 +1,13 @@
 # Comment
 
+A user-generated comment.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | [optional] 
-**user_id** | **str** |  | [optional] 
-**post_id** | **str** |  | [optional] 
+**id** | **str** | The ID of this comment. | [optional] 
+**user_id** | **str** | The ID of the author. | [optional] 
+**post_id** | **str** | The ID of the post hosting this comment. | [optional] 
 **blog_id** | **str** |  | [optional] 
 **parent_id** | **str** |  | [optional] 
 **author_display_name** | **str** |  | [optional] 

@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | Pointer to **string** |  | [optional] 
-**UserId** | Pointer to **string** |  | [optional] 
-**PostId** | Pointer to **string** |  | [optional] 
+**Id** | Pointer to **string** | The ID of this comment. | [optional] 
+**UserId** | Pointer to **string** | The ID of the author. | [optional] 
+**PostId** | Pointer to **string** | The ID of the post hosting this comment. | [optional] 
 **BlogId** | Pointer to **string** |  | [optional] 
 **ParentId** | Pointer to **string** |  | [optional] 
 **AuthorDisplayName** | Pointer to **string** |  | [optional] 

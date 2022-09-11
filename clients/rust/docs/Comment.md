@@ -4,9 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**String**> |  | [optional]
-**user_id** | Option<**String**> |  | [optional]
-**post_id** | Option<**String**> |  | [optional]
+**id** | Option<**String**> | The ID of this comment. | [optional]
+**user_id** | Option<**String**> | The ID of the author. | [optional]
+**post_id** | Option<**String**> | The ID of the post hosting this comment. | [optional]
 **blog_id** | Option<**String**> |  | [optional]
 **parent_id** | Option<**String**> |  | [optional]
 **author_display_name** | Option<**String**> |  | [optional]

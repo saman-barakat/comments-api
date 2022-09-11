@@ -12,9 +12,21 @@
 import { Media } from './media';
 
 
+/**
+ * A user-generated comment.
+ */
 export interface Comment { 
+    /**
+     * The ID of this comment.
+     */
     id?: string;
+    /**
+     * The ID of the author.
+     */
     userId?: string;
+    /**
+     * The ID of the post hosting this comment.
+     */
     postId?: string;
     blogId?: string;
     parentId?: string;
@@ -28,12 +40,13 @@ export interface Comment {
     media?: Media;
 }
 export namespace Comment {
-    export type StatusEnum = 'Draft' | 'InReview' | 'Flagged' | 'Published';
+    export type StatusEnum = 'Draft' | 'InReview' | 'Flagged' | 'Published' | 'Deleted';
     export const StatusEnum = {
         Draft: 'Draft' as StatusEnum,
         InReview: 'InReview' as StatusEnum,
         Flagged: 'Flagged' as StatusEnum,
-        Published: 'Published' as StatusEnum
+        Published: 'Published' as StatusEnum,
+        Deleted: 'Deleted' as StatusEnum
     };
 }
 

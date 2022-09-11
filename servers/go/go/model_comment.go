@@ -14,12 +14,16 @@ import (
 	"time"
 )
 
+// Comment - A user-generated comment.
 type Comment struct {
 
+	// The ID of this comment.
 	Id string `json:"id,omitempty"`
 
+	// The ID of the author.
 	UserId string `json:"userId,omitempty"`
 
+	// The ID of the post hosting this comment.
 	PostId string `json:"postId,omitempty"`
 
 	BlogId string `json:"blogId,omitempty"`

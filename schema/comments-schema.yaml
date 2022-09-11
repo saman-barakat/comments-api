@@ -140,7 +140,7 @@ paths:
                   type: string
                   enum:
                     - Draft
-                    - InReview        
+                    - InReview
                     - Flagged
                     - Published
                 downvoteCount:
@@ -148,7 +148,7 @@ paths:
                 upvoteCount:
                   type: integer
                 media:
-                  $ref: '#/components/schemas/Media' 
+                  $ref: '#/components/schemas/Media'
     delete:
       tags:
         - comment
@@ -282,11 +282,11 @@ paths:
                 commentStatus:
                   type: string
                   enum:
-                  - Disabled
-                  - RequireReview      
-                  - AutomateReview 
+                    - Disabled
+                    - RequireReview
+                    - AutomateReview
                 postType:
-                  type: string 
+                  type: string
     delete:
       tags:
         - post
@@ -418,9 +418,9 @@ paths:
                 commentStatus:
                   type: string
                   enum:
-                  - Disabled
-                  - RequireReview      
-                  - AutomateReview           
+                    - Disabled
+                    - RequireReview
+                    - AutomateReview
     delete:
       tags:
         - blog
@@ -591,13 +591,17 @@ components:
   schemas:
     Comment:
       type: object
+      description: A user-generated comment.
       properties:
         id:
           type: string
+          description: The ID of this comment.
         userId:
           type: string
+          description: The ID of the author.
         postId:
           type: string
+          description: The ID of the post hosting this comment.
         blogId:
           type: string
         parentId:
@@ -616,17 +620,35 @@ components:
           type: string
           enum:
             - Draft
-            - InReview        
+            - InReview
             - Flagged
             - Published
+            - Deleted
         downvoteCount:
           type: integer
         upvoteCount:
           type: integer
         media:
-          $ref: '#/components/schemas/Media'    
+          $ref: '#/components/schemas/Media'
       xml:
         name: Comment
+      example:
+        id: sWT2a92sQX12qH
+        userId: johnSmith@
+        authorDisplayName: John Smith
+        postId: 'how to make a fish climb a mountain'
+        blogId: 'climbing-fishes.com'
+        content: 'Is that really a fish going up that hill??'
+        upvoteCount: 1683
+        downvoteCount: 56
+        status: Published
+        created_timestamp: 2000-01-23T04:56:07.000+00:00
+        modified_timestamp: 2000-01-23T04:56:07.000+00:00
+        media:
+          name: climbing-fish.png
+          id: climbing-fish.png
+          type: PNG/Image
+          content: byte-content
     Media:
       type: object
       properties:
@@ -639,7 +661,7 @@ components:
         content:
           type: string
       xml:
-        name: Media 
+        name: Media
     Post:
       type: object
       properties:
@@ -657,7 +679,7 @@ components:
           type: string
           enum:
             - Disabled
-            - RequireReview      
+            - RequireReview
             - AutomateReview
         postType:
           type: string
@@ -681,7 +703,7 @@ components:
         email:
           type: string
         role:
-           $ref: '#/components/schemas/Role'
+          $ref: '#/components/schemas/Role'
         blogs:
           type: array
           xml:
@@ -690,7 +712,7 @@ components:
           items:
             $ref: '#/components/schemas/Blog'
         verificationStatus:
-          $ref: '#/components/schemas/VerificationStatus' 
+          $ref: '#/components/schemas/VerificationStatus'
       xml:
         name: User
     Role:
@@ -699,8 +721,8 @@ components:
         name:
           type: string
         capabilities:
-           type: array
-           items:
+          type: array
+          items:
             type: string
       xml:
         name: Role
@@ -731,7 +753,7 @@ components:
           type: string
           enum:
             - Disabled
-            - RequireReview      
+            - RequireReview
             - AutomateReview
       xml:
         name: Blog
@@ -771,7 +793,7 @@ components:
         implicit:
           authorizationUrl: 'http://petstore.swagger.io/oauth/dialog'
           scopes:
-            'write': modify 
+            'write': modify
             'read': read
     api_key:
       type: apiKey
