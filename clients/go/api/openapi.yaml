@@ -1,14 +1,16 @@
 openapi: 3.0.0
 info:
   contact:
-    email: email@gmail.com
+    email: support@comments.app
+    name: API Support
+    url: https://comments.app/support
   description: |
-    This is a sample server.
+    APIs for creating and managing comments
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  termsOfService: http://swagger.io/terms/
-  title: Open APi
+  termsOfService: https://comments.app/tos
+  title: GComments
   version: 1.0.0
 servers:
 - url: http://localhost:8080

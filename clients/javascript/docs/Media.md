@@ -1,4 +1,4 @@
-# OpenApi.Media
+# GComments.Media
 
 ## Properties
 

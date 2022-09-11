@@ -1,4 +1,4 @@
-# OpenApi.UserApi
+# GComments.UserApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -24,10 +24,10 @@ This can only be done by the logged in user.
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
-let user = new OpenApi.User(); // User | Created user object
+let apiInstance = new GComments.UserApi();
+let user = new GComments.User(); // User | Created user object
 apiInstance.createUser(user, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -69,9 +69,9 @@ This can only be done by the logged in user.
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
+let apiInstance = new GComments.UserApi();
 let username = "username_example"; // String | The name that needs to be deleted
 apiInstance.deleteUser(username, (error, data, response) => {
   if (error) {
@@ -112,9 +112,9 @@ Get user by user name
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
+let apiInstance = new GComments.UserApi();
 let username = "username_example"; // String | The name that needs to be fetched. Use user1 for testing.
 apiInstance.getUserByName(username, (error, data, response) => {
   if (error) {
@@ -155,9 +155,9 @@ Logs user into the system
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
+let apiInstance = new GComments.UserApi();
 let username = "username_example"; // String | The user name for login
 let password = "password_example"; // String | The password for login in clear text
 apiInstance.loginUser(username, password, (error, data, response) => {
@@ -200,9 +200,9 @@ Logs out current logged in user session
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
+let apiInstance = new GComments.UserApi();
 apiInstance.logoutUser((error, data, response) => {
   if (error) {
     console.error(error);
@@ -241,11 +241,11 @@ This can only be done by the logged in user.
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
+import GComments from 'g_comments';
 
-let apiInstance = new OpenApi.UserApi();
+let apiInstance = new GComments.UserApi();
 let username = "username_example"; // String | name that need to be updated
-let user = new OpenApi.User(); // User | Updated user object
+let user = new GComments.User(); // User | Updated user object
 apiInstance.updateUser(username, user, (error, data, response) => {
   if (error) {
     console.error(error);

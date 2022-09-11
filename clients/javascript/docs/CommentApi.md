@@ -1,4 +1,4 @@
-# OpenApi.CommentApi
+# GComments.CommentApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -21,14 +21,14 @@ Add a new comment
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.CommentApi();
-let comment = new OpenApi.Comment(); // Comment | Comment object that needs to be added
+let apiInstance = new GComments.CommentApi();
+let comment = new GComments.Comment(); // Comment | Comment object that needs to be added
 apiInstance.addComment(comment, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -68,13 +68,13 @@ Deletes a comment
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.CommentApi();
+let apiInstance = new GComments.CommentApi();
 let commentId = "commentId_example"; // String | Comment id to delete
 let opts = {
   'apiKey': "apiKey_example" // String | 
@@ -121,15 +121,15 @@ Returns a single comment
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure API key authorization: api_key
 let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenApi.CommentApi();
+let apiInstance = new GComments.CommentApi();
 let commentId = "commentId_example"; // String | ID of comment to return
 apiInstance.getCommentById(commentId, (error, data, response) => {
   if (error) {
@@ -170,14 +170,14 @@ Update an existing comment
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.CommentApi();
-let comment = new OpenApi.Comment(); // Comment | Comment object that needs to be added
+let apiInstance = new GComments.CommentApi();
+let comment = new GComments.Comment(); // Comment | Comment object that needs to be added
 apiInstance.updateComment(comment, (error, data, response) => {
   if (error) {
     console.error(error);
@@ -217,13 +217,13 @@ Updates a comment with form data
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.CommentApi();
+let apiInstance = new GComments.CommentApi();
 let commentId = "commentId_example"; // String | ID of comment that needs to be updated
 let opts = {
   'userId': "userId_example", // String | 
@@ -237,7 +237,7 @@ let opts = {
   'status': "status_example", // String | 
   'downvoteCount': 56, // Number | 
   'upvoteCount': 56, // Number | 
-  'media': new OpenApi.Media() // Media | 
+  'media': new GComments.Media() // Media | 
 };
 apiInstance.updateCommentWithForm(commentId, opts, (error, data, response) => {
   if (error) {

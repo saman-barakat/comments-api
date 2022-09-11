@@ -1,4 +1,4 @@
-# OpenApi.PostApi
+# GComments.PostApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -21,15 +21,15 @@ Add a new post
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.PostApi();
+let apiInstance = new GComments.PostApi();
 let opts = {
-  'post': new OpenApi.Post() // Post | Post object that needs to be added
+  'post': new GComments.Post() // Post | Post object that needs to be added
 };
 apiInstance.addPost(opts, (error, data, response) => {
   if (error) {
@@ -70,13 +70,13 @@ Deletes a post
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.PostApi();
+let apiInstance = new GComments.PostApi();
 let postId = "postId_example"; // String | Post id to delete
 let opts = {
   'apiKey': "apiKey_example" // String | 
@@ -123,15 +123,15 @@ Returns a single post
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure API key authorization: api_key
 let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenApi.PostApi();
+let apiInstance = new GComments.PostApi();
 let postId = "postId_example"; // String | ID of post to return
 apiInstance.getPostById(postId, (error, data, response) => {
   if (error) {
@@ -172,15 +172,15 @@ Update an existing post
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.PostApi();
+let apiInstance = new GComments.PostApi();
 let opts = {
-  'post': new OpenApi.Post() // Post | Post object that needs to be added
+  'post': new GComments.Post() // Post | Post object that needs to be added
 };
 apiInstance.updatePost(opts, (error, data, response) => {
   if (error) {
@@ -221,13 +221,13 @@ Updates a post with form data
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.PostApi();
+let apiInstance = new GComments.PostApi();
 let postId = "postId_example"; // String | ID of post that needs to be updated
 let opts = {
   'title': "title_example", // String | 

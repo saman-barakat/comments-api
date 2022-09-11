@@ -1,8 +1,9 @@
 # OpenAPIClient-php
 
-This is a sample server.
+APIs for creating and managing comments
 
 
+For more information, please visit [https://comments.app/support](https://comments.app/support).
 
 ## Installation & Usage
 
@@ -138,7 +139,7 @@ vendor/bin/phpunit
 
 ## Author
 
-email@gmail.com
+support@comments.app
 
 ## About this package
 

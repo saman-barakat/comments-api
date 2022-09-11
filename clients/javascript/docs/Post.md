@@ -1,4 +1,4 @@
-# OpenApi.Post
+# GComments.Post
 
 ## Properties
 

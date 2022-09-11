@@ -1,6 +1,6 @@
 # Go API Server for comments
 
-This is a sample server.
+APIs for creating and managing comments
 
 
 ## Overview
@@ -14,6 +14,7 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 1.0.0
+For more information, please visit [https://comments.app/support](https://comments.app/support)
 
 
 ### Running the server

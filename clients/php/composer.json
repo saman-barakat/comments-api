@@ -1,5 +1,5 @@
 {
-    "description": "This is a sample server.",
+    "description": "APIs for creating and managing comments",
     "keywords": [
         "openapitools",
         "openapi-generator",

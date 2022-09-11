@@ -1,4 +1,4 @@
-# OpenApi.Role
+# GComments.Role
 
 ## Properties
 

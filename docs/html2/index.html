@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Open APi</title>
+  <title>GComments</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="UTF-8" />
@@ -1141,7 +1141,7 @@ ul.nav-tabs {
       <div id="content">
         <div id="project">
           <div class="pull-left">
-            <h1>Open APi</h1>
+            <h1>GComments</h1>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -1151,7 +1151,7 @@ ul.nav-tabs {
               <div class="app-desc">Version: 1.0.0</div>
             <hr>
             <div id="app-description" class="app-desc">
-                This is a sample server.
+                APIs for creating and managing comments
             </div>
           </div>
         </div>
@@ -1286,15 +1286,15 @@ Blog *blog = ; //  (optional)
                             </div>
 
                             <div class="tab-pane" id="examples-Blog-addBlog-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.BlogApi()
+var api = new GComments.BlogApi()
 var opts = {
   'blog':  // {Blog} 
 };
@@ -1658,15 +1658,15 @@ String *apiKey = apiKey_example; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Blog-deleteBlog-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.BlogApi()
+var api = new GComments.BlogApi()
 var blogId = blogId_example; // {String} Blog id to delete
 var opts = {
   'apiKey': apiKey_example // {String} 
@@ -2067,8 +2067,8 @@ String *blogId = blogId_example; // ID of blog to return (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Blog-getBlogById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure API key authorization: api_key
 var api_key = defaultClient.authentications['api_key'];
@@ -2077,7 +2077,7 @@ api_key.apiKey = "YOUR API KEY";
 //api_key.apiKeyPrefix['api_key'] = "Token";
 
 // Create an instance of the API class
-var api = new OpenApi.BlogApi()
+var api = new GComments.BlogApi()
 var blogId = blogId_example; // {String} ID of blog to return
 
 var callback = function(error, data, response) {
@@ -2506,15 +2506,15 @@ Blog *blog = ; //  (optional)
                             </div>
 
                             <div class="tab-pane" id="examples-Blog-updateBlog-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.BlogApi()
+var api = new GComments.BlogApi()
 var opts = {
   'blog':  // {Blog} 
 };
@@ -2935,15 +2935,15 @@ String *commentStatus = commentStatus_example; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Blog-updateBlogWithForm-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.BlogApi()
+var api = new GComments.BlogApi()
 var blogId = blogId_example; // {String} ID of blog that needs to be updated
 var opts = {
   'name': name_example, // {String} 
@@ -3424,15 +3424,15 @@ Comment *comment = ; //
                             </div>
 
                             <div class="tab-pane" id="examples-Comment-addComment-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.CommentApi()
+var api = new GComments.CommentApi()
 var comment = ; // {Comment} 
 
 var callback = function(error, data, response) {
@@ -3795,15 +3795,15 @@ String *apiKey = apiKey_example; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Comment-deleteComment-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.CommentApi()
+var api = new GComments.CommentApi()
 var commentId = commentId_example; // {String} Comment id to delete
 var opts = {
   'apiKey': apiKey_example // {String} 
@@ -4204,8 +4204,8 @@ String *commentId = commentId_example; // ID of comment to return (default to nu
                             </div>
 
                             <div class="tab-pane" id="examples-Comment-getCommentById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure API key authorization: api_key
 var api_key = defaultClient.authentications['api_key'];
@@ -4214,7 +4214,7 @@ api_key.apiKey = "YOUR API KEY";
 //api_key.apiKeyPrefix['api_key'] = "Token";
 
 // Create an instance of the API class
-var api = new OpenApi.CommentApi()
+var api = new GComments.CommentApi()
 var commentId = commentId_example; // {String} ID of comment to return
 
 var callback = function(error, data, response) {
@@ -4663,15 +4663,15 @@ Comment *comment = ; //
                             </div>
 
                             <div class="tab-pane" id="examples-Comment-updateComment-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.CommentApi()
+var api = new GComments.CommentApi()
 var comment = ; // {Comment} 
 
 var callback = function(error, data, response) {
@@ -5123,15 +5123,15 @@ Media *media = ; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Comment-updateCommentWithForm-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.CommentApi()
+var api = new GComments.CommentApi()
 var commentId = commentId_example; // {String} ID of comment that needs to be updated
 var opts = {
   'userId': userId_example, // {String} 
@@ -5786,15 +5786,15 @@ Post *post = ; //  (optional)
                             </div>
 
                             <div class="tab-pane" id="examples-Post-addPost-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.PostApi()
+var api = new GComments.PostApi()
 var opts = {
   'post':  // {Post} 
 };
@@ -6158,15 +6158,15 @@ String *apiKey = apiKey_example; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Post-deletePost-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.PostApi()
+var api = new GComments.PostApi()
 var postId = postId_example; // {String} Post id to delete
 var opts = {
   'apiKey': apiKey_example // {String} 
@@ -6567,8 +6567,8 @@ String *postId = postId_example; // ID of post to return (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Post-getPostById-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure API key authorization: api_key
 var api_key = defaultClient.authentications['api_key'];
@@ -6577,7 +6577,7 @@ api_key.apiKey = "YOUR API KEY";
 //api_key.apiKeyPrefix['api_key'] = "Token";
 
 // Create an instance of the API class
-var api = new OpenApi.PostApi()
+var api = new GComments.PostApi()
 var postId = postId_example; // {String} ID of post to return
 
 var callback = function(error, data, response) {
@@ -7010,15 +7010,15 @@ Post *post = ; //  (optional)
                             </div>
 
                             <div class="tab-pane" id="examples-Post-updatePost-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.PostApi()
+var api = new GComments.PostApi()
 var opts = {
   'post':  // {Post} 
 };
@@ -7447,15 +7447,15 @@ String *postType = postType_example; //  (optional) (default to null)
                             </div>
 
                             <div class="tab-pane" id="examples-Post-updatePostWithForm-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
-var defaultClient = OpenApi.ApiClient.instance;
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
+var defaultClient = GComments.ApiClient.instance;
 
 // Configure OAuth2 access token for authorization: cm_auth
 var cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
-var api = new OpenApi.PostApi()
+var api = new GComments.PostApi()
 var postId = postId_example; // {String} ID of post that needs to be updated
 var opts = {
   'title': title_example, // {String} 
@@ -7969,10 +7969,10 @@ User *user = ; //
                             </div>
 
                             <div class="tab-pane" id="examples-User-createUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var user = ; // {User} 
 
 var callback = function(error, data, response) {
@@ -8273,10 +8273,10 @@ String *username = username_example; // The name that needs to be deleted (defau
                             </div>
 
                             <div class="tab-pane" id="examples-User-deleteUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var username = username_example; // {String} The name that needs to be deleted
 
 var callback = function(error, data, response) {
@@ -8588,10 +8588,10 @@ String *username = username_example; // The name that needs to be fetched. Use u
                             </div>
 
                             <div class="tab-pane" id="examples-User-getUserByName-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var username = username_example; // {String} The name that needs to be fetched. Use user1 for testing.
 
 var callback = function(error, data, response) {
@@ -8986,10 +8986,10 @@ String *password = password_example; // The password for login in clear text (de
                             </div>
 
                             <div class="tab-pane" id="examples-User-loginUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var username = username_example; // {String} The user name for login
 var password = password_example; // {String} The password for login in clear text
 
@@ -9423,10 +9423,10 @@ UserApi *apiInstance = [[UserApi alloc] init];
                             </div>
 
                             <div class="tab-pane" id="examples-User-logoutUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -9709,10 +9709,10 @@ User *user = ; //
                             </div>
 
                             <div class="tab-pane" id="examples-User-updateUser-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var OpenApi = require('open_api');
+                              <pre class="prettyprint"><code class="language-js">var GComments = require('g_comments');
 
 // Create an instance of the API class
-var api = new OpenApi.UserApi()
+var api = new GComments.UserApi()
 var username = username_example; // {String} name that need to be updated
 var user = ; // {User} 
 
@@ -9973,8 +9973,8 @@ $(document).ready(function() {
           <div id="footer">
             <div id="api-_footer">
               <p>Suggestions, contact, support and error reporting;
-                  <div class="app-desc">Information URL: <a href="https://openapi-generator.tech">https://openapi-generator.tech</a></div>
-                  <div class="app-desc">Contact Info: <a href="email@gmail.com">email@gmail.com</a></div>
+                  <div class="app-desc">Information URL: <a href="https://comments.app/support">https://comments.app/support</a></div>
+                  <div class="app-desc">Contact Info: <a href="support@comments.app">support@comments.app</a></div>
               </p>
                 <div class="license-info">Apache 2.0</div>
                 <div class="license-url">http://www.apache.org/licenses/LICENSE-2.0.html</div>

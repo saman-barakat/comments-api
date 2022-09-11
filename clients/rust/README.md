@@ -1,8 +1,9 @@
 # Rust API client for openapi
 
-This is a sample server.
+APIs for creating and managing comments
 
 
+For more information, please visit [https://comments.app/support](https://comments.app/support)
 
 ## Overview
 
@@ -68,5 +69,5 @@ cargo doc --open
 
 ## Author
 
-email@gmail.com
+support@comments.app
 

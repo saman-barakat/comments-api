@@ -1,4 +1,4 @@
-# OpenApi.User
+# GComments.User
 
 ## Properties
 

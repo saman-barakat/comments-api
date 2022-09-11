@@ -1,4 +1,4 @@
-# OpenApi.VerificationStatus
+# GComments.VerificationStatus
 
 ## Properties
 

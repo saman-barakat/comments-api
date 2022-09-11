@@ -1,4 +1,4 @@
-# OpenApi.BlogApi
+# GComments.BlogApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -21,15 +21,15 @@ Add a new blog
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.BlogApi();
+let apiInstance = new GComments.BlogApi();
 let opts = {
-  'blog': new OpenApi.Blog() // Blog | Blog object that needs to be added
+  'blog': new GComments.Blog() // Blog | Blog object that needs to be added
 };
 apiInstance.addBlog(opts, (error, data, response) => {
   if (error) {
@@ -70,13 +70,13 @@ Deletes a blog
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.BlogApi();
+let apiInstance = new GComments.BlogApi();
 let blogId = "blogId_example"; // String | Blog id to delete
 let opts = {
   'apiKey': "apiKey_example" // String | 
@@ -123,15 +123,15 @@ Returns a single blog
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure API key authorization: api_key
 let api_key = defaultClient.authentications['api_key'];
 api_key.apiKey = 'YOUR API KEY';
 // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
 //api_key.apiKeyPrefix = 'Token';
 
-let apiInstance = new OpenApi.BlogApi();
+let apiInstance = new GComments.BlogApi();
 let blogId = "blogId_example"; // String | ID of blog to return
 apiInstance.getBlogById(blogId, (error, data, response) => {
   if (error) {
@@ -172,15 +172,15 @@ Update an existing blog
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.BlogApi();
+let apiInstance = new GComments.BlogApi();
 let opts = {
-  'blog': new OpenApi.Blog() // Blog | Blog object that needs to be added
+  'blog': new GComments.Blog() // Blog | Blog object that needs to be added
 };
 apiInstance.updateBlog(opts, (error, data, response) => {
   if (error) {
@@ -221,13 +221,13 @@ Updates a blog with form data
 ### Example
 
 ```javascript
-import OpenApi from 'open_api';
-let defaultClient = OpenApi.ApiClient.instance;
+import GComments from 'g_comments';
+let defaultClient = GComments.ApiClient.instance;
 // Configure OAuth2 access token for authorization: cm_auth
 let cm_auth = defaultClient.authentications['cm_auth'];
 cm_auth.accessToken = 'YOUR ACCESS TOKEN';
 
-let apiInstance = new OpenApi.BlogApi();
+let apiInstance = new GComments.BlogApi();
 let blogId = "blogId_example"; // String | ID of blog that needs to be updated
 let opts = {
   'name': "name_example", // String | 

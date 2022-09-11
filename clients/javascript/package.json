@@ -1,7 +1,7 @@
 {
-  "name": "open_api",
+  "name": "g_comments",
   "version": "1.0.0",
-  "description": "This_is_a_sample_server_",
+  "description": "APIs_for_creating_and_managing_comments",
   "license": "Apache 2.0",
   "main": "dist/index.js",
   "scripts": {

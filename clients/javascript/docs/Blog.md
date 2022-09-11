@@ -1,4 +1,4 @@
-# OpenApi.Blog
+# GComments.Blog
 
 ## Properties
 
