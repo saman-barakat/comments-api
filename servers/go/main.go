@@ -14,25 +14,25 @@ import (
 	"log"
 	"net/http"
 
-	openapi "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	comments "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 )
 
 func main() {
 	log.Printf("Server started")
 
-	BlogApiService := openapi.NewBlogApiService()
-	BlogApiController := openapi.NewBlogApiController(BlogApiService)
+	BlogApiService := comments.NewBlogApiService()
+	BlogApiController := comments.NewBlogApiController(BlogApiService)
 
-	CommentApiService := openapi.NewCommentApiService()
-	CommentApiController := openapi.NewCommentApiController(CommentApiService)
+	CommentApiService := comments.NewCommentApiService()
+	CommentApiController := comments.NewCommentApiController(CommentApiService)
 
-	PostApiService := openapi.NewPostApiService()
-	PostApiController := openapi.NewPostApiController(PostApiService)
+	PostApiService := comments.NewPostApiService()
+	PostApiController := comments.NewPostApiController(PostApiService)
 
-	UserApiService := openapi.NewUserApiService()
-	UserApiController := openapi.NewUserApiController(UserApiService)
+	UserApiService := comments.NewUserApiService()
+	UserApiController := comments.NewUserApiController(UserApiService)
 
-	router := openapi.NewRouter(BlogApiController, CommentApiController, PostApiController, UserApiController)
+	router := comments.NewRouter(BlogApiController, CommentApiController, PostApiController, UserApiController)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

@@ -1,4 +1,4 @@
-# Go API Server for openapi
+# Go API Server for comments
 
 This is a sample server.
 
@@ -14,7 +14,6 @@ To see how to make this your own, look here:
 [README](https://openapi-generator.tech)
 
 - API version: 1.0.0
-- Build date: 2022-09-10T16:40:57.532561-07:00[America/Los_Angeles]
 
 
 ### Running the server
@@ -26,10 +25,10 @@ go run main.go
 
 To run the server in a docker container
 ```
-docker build --network=host -t openapi .
+docker build --network=host -t comments .
 ```
 
 Once image is built use
 ```
-docker run --rm -it openapi
+docker run --rm -it comments
 ```
