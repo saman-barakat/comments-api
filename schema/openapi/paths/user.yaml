@@ -1,0 +1,18 @@
+ #/user path:
+    post:
+      tags:
+        - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      responses:
+        '200':
+          description: User created successfully
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '../openapi/components/schemas/User'
+        description: Created user object
+        required: true
+ 

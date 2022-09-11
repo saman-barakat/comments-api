@@ -1,0 +1,38 @@
+#Comment path:
+
+    post:
+      tags:
+        - comment
+      summary: Add a new comment
+      operationId: addComment
+      responses:
+        '200':
+          description: Comment created successfully
+        '405':
+          description: Invalid input
+      security:
+        - cm_auth:
+            - 'write'
+            - 'read'
+      requestBody:
+        $ref: '../openapi/components/requestBodies/Comment'
+    put:
+      tags:
+        - comment
+      summary: Update an existing comment
+      operationId: updateComment
+      responses:
+        '200':
+          description: Comment updated successfully
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Comment not found
+        '405':
+          description: Validation exception
+      security:
+        - cm_auth:
+            - 'write'
+            - 'read'
+      requestBody:
+        $ref: '../openapi/components/requestBodies/Comment'

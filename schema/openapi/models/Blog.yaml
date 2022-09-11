@@ -1,0 +1,19 @@
+#   Blog:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        authToken:
+          type: string
+        commentStatus:
+          type: boolean
+          enum:
+            - Disabled
+            - RequireReview      
+            - AutomateReview
+      xml:
+        name: Blog

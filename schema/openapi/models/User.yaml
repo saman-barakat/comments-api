@@ -1,0 +1,30 @@
+# User:
+      type: object
+      properties:
+        id:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        niceName:
+          type: string
+        avatarUrl:
+          type: string
+        displayName:
+          type: string
+        email:
+          type: string
+        role:
+          $ref: '../openapi/components/schemas/Role'
+        blogs:
+          type: array
+          xml:
+            name: blog
+            wrapped: true
+          items:
+            $ref: '../openapi/components/schemas/Blog'
+        verificationStatus:
+          $ref: '../openapi/components/schemas/VerificationStatus'
+      xml:
+        name: User

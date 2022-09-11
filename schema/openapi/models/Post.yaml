@@ -1,0 +1,23 @@
+#   Post:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        commentStatus:
+          type: string
+          enum:
+            - Disabled
+            - RequireReview
+            - AutomateReview
+        postType:
+          type: string
+      xml:
+        name: Post

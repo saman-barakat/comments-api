@@ -1,0 +1,12 @@
+#   VerificationStatus:
+      type: object
+      properties:
+        isVerified:
+          type: boolean
+        verificationTimestamp:
+          type: string
+          format: date-time
+        verificationMethod:
+          type: string
+      xml:
+        name: VerificationStatus
