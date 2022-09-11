@@ -1,0 +1,7 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: clients/go
+generatorName: go
+additionalProperties:
+  hideGenerationTimestamp: true
+  outputAsLibrary: true
+  packageName: comments

@@ -1,0 +1,6 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: servers/go
+generatorName: go-server
+additionalProperties:
+  hideGenerationTimestamp: true
+  packageName: comments

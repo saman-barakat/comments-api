@@ -1,0 +1,6 @@
+
+# Comments API
+
+### Batch generate by running:
+
+`npx @openapitools/openapi-generator-cli batch schema/generators/*.yaml `
