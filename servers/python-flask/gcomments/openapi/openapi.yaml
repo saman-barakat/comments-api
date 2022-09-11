@@ -1,0 +1,956 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: support@comments.app
+    name: API Support
+    url: https://comments.app/support
+  description: |
+    APIs for creating and managing comments
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: https://comments.app/tos
+  title: GComments
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+tags:
+- description: Everything about your Comments
+  name: comment
+- description: Everything about your Posts
+  name: post
+- description: Everything about your Users
+  name: user
+- description: Everything about your Blogs
+  name: blog
+paths:
+  /blog:
+    post:
+      operationId: add_blog
+      requestBody:
+        $ref: '#/components/requestBodies/Blog'
+      responses:
+        "200":
+          description: Blog created successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Add a new blog
+      tags:
+      - blog
+      x-openapi-router-controller: gcomments.controllers.blog_controller
+    put:
+      operationId: update_blog
+      requestBody:
+        $ref: '#/components/requestBodies/Blog'
+      responses:
+        "200":
+          description: Blog updated successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Blog not found
+        "405":
+          description: Validation exception
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Update an existing blog
+      tags:
+      - blog
+      x-openapi-router-controller: gcomments.controllers.blog_controller
+  /blog/{blogId}:
+    delete:
+      operationId: delete_blog
+      parameters:
+      - explode: false
+        in: header
+        name: api_key
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Blog id to delete
+        explode: false
+        in: path
+        name: blogId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Blog deleted successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Blog not found
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Deletes a blog
+      tags:
+      - blog
+      x-openapi-router-controller: gcomments.controllers.blog_controller
+    get:
+      description: Returns a single blog
+      operationId: get_blog_by_id
+      parameters:
+      - description: ID of blog to return
+        explode: false
+        in: path
+        name: blogId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Blog'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Blog'
+          description: blog fetched successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Blog not found
+      security:
+      - api_key: []
+      summary: Find blog by ID
+      tags:
+      - blog
+      x-openapi-router-controller: gcomments.controllers.blog_controller
+    post:
+      operationId: update_blog_with_form
+      parameters:
+      - description: ID of blog that needs to be updated
+        explode: false
+        in: path
+        name: blogId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/updateBlogWithForm_request'
+      responses:
+        "200":
+          description: Blog updated successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Updates a blog with form data
+      tags:
+      - blog
+      x-openapi-router-controller: gcomments.controllers.blog_controller
+  /comment:
+    post:
+      operationId: add_comment
+      requestBody:
+        $ref: '#/components/requestBodies/Comment'
+      responses:
+        "200":
+          description: Comment created successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Add a new comment
+      tags:
+      - comment
+      x-openapi-router-controller: gcomments.controllers.comment_controller
+    put:
+      operationId: update_comment
+      requestBody:
+        $ref: '#/components/requestBodies/Comment'
+      responses:
+        "200":
+          description: Comment updated successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Comment not found
+        "405":
+          description: Validation exception
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Update an existing comment
+      tags:
+      - comment
+      x-openapi-router-controller: gcomments.controllers.comment_controller
+  /comment/{commentId}:
+    delete:
+      operationId: delete_comment
+      parameters:
+      - explode: false
+        in: header
+        name: api_key
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Comment id to delete
+        explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Comment deleted successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Comment not found
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Deletes a comment
+      tags:
+      - comment
+      x-openapi-router-controller: gcomments.controllers.comment_controller
+    get:
+      description: Returns a single comment
+      operationId: get_comment_by_id
+      parameters:
+      - description: ID of comment to return
+        explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Comment'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Comment'
+          description: Comment fetched successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Comment not found
+      security:
+      - api_key: []
+      summary: Find comment by ID
+      tags:
+      - comment
+      x-openapi-router-controller: gcomments.controllers.comment_controller
+    post:
+      operationId: update_comment_with_form
+      parameters:
+      - description: ID of comment that needs to be updated
+        explode: false
+        in: path
+        name: commentId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/updateCommentWithForm_request'
+      responses:
+        "200":
+          description: Comment created successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Updates a comment with form data
+      tags:
+      - comment
+      x-openapi-router-controller: gcomments.controllers.comment_controller
+  /post:
+    post:
+      operationId: add_post
+      requestBody:
+        $ref: '#/components/requestBodies/Post'
+      responses:
+        "200":
+          description: Post created successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Add a new post
+      tags:
+      - post
+      x-openapi-router-controller: gcomments.controllers.post_controller
+    put:
+      operationId: update_post
+      requestBody:
+        $ref: '#/components/requestBodies/Post'
+      responses:
+        "200":
+          description: Post updated successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Comment not found
+        "405":
+          description: Validation exception
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Update an existing post
+      tags:
+      - post
+      x-openapi-router-controller: gcomments.controllers.post_controller
+  /post/{postId}:
+    delete:
+      operationId: delete_post
+      parameters:
+      - explode: false
+        in: header
+        name: api_key
+        required: false
+        schema:
+          type: string
+        style: simple
+      - description: Post id to delete
+        explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          description: Post deleted successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Post not found
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Deletes a post
+      tags:
+      - post
+      x-openapi-router-controller: gcomments.controllers.post_controller
+    get:
+      description: Returns a single post
+      operationId: get_post_by_id
+      parameters:
+      - description: ID of post to return
+        explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Post'
+          description: Post fetched successfully
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Comment not found
+      security:
+      - api_key: []
+      summary: Find post by ID
+      tags:
+      - post
+      x-openapi-router-controller: gcomments.controllers.post_controller
+    post:
+      operationId: update_post_with_form
+      parameters:
+      - description: ID of post that needs to be updated
+        explode: false
+        in: path
+        name: postId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/updatePostWithForm_request'
+      responses:
+        "200":
+          description: Post updated successfully
+        "405":
+          description: Invalid input
+      security:
+      - cm_auth:
+        - write
+        - read
+      summary: Updates a post with form data
+      tags:
+      - post
+      x-openapi-router-controller: gcomments.controllers.post_controller
+  /user:
+    post:
+      description: This can only be done by the logged in user.
+      operationId: create_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Created user object
+        required: true
+      responses:
+        "200":
+          description: User created successfully
+      summary: Create user
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+  /user/login:
+    get:
+      operationId: login_user
+      parameters:
+      - description: The user name for login
+        explode: true
+        in: query
+        name: username
+        required: true
+        schema:
+          type: string
+        style: form
+      - description: The password for login in clear text
+        explode: true
+        in: query
+        name: password
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+          description: User login successfully
+          headers:
+            X-Rate-Limit:
+              description: calls per hour allowed by the user
+              explode: false
+              schema:
+                format: int32
+                type: integer
+              style: simple
+            X-Expires-After:
+              description: date in UTC when token expires
+              explode: false
+              schema:
+                format: date-time
+                type: string
+              style: simple
+        "400":
+          description: Invalid username/password supplied
+      summary: Logs user into the system
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+  /user/logout:
+    get:
+      operationId: logout_user
+      responses:
+        default:
+          description: User logout successfully
+      summary: Logs out current logged in user session
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+  /user/{username}:
+    delete:
+      description: This can only be done by the logged in user.
+      operationId: delete_user
+      parameters:
+      - description: The name that needs to be deleted
+        explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "400":
+          description: Invalid username supplied
+        "404":
+          description: User not found
+      summary: Delete user
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+    get:
+      operationId: get_user_by_name
+      parameters:
+      - description: The name that needs to be fetched. Use user1 for testing.
+        explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/User'
+          description: User fetched successfully
+        "400":
+          description: Invalid username supplied
+        "404":
+          description: User not found
+      summary: Get user by user name
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+    put:
+      description: This can only be done by the logged in user.
+      operationId: update_user
+      parameters:
+      - description: name that need to be updated
+        explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        description: Updated user object
+        required: true
+      responses:
+        "400":
+          description: Invalid user supplied
+        "404":
+          description: User not found
+      summary: Updated user
+      tags:
+      - user
+      x-openapi-router-controller: gcomments.controllers.user_controller
+components:
+  requestBodies:
+    Comment:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Comment'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Comment'
+      description: Comment object that needs to be added
+      required: true
+    Post:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Post'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Post'
+      description: Post object that needs to be added
+    Blog:
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Blog'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Blog'
+      description: Blog object that needs to be added
+  schemas:
+    Comment:
+      description: A user-generated comment.
+      example:
+        id: sWT2a92sQX12qH
+        userId: johnSmith@
+        authorDisplayName: John Smith
+        postId: how to make a fish climb a mountain
+        blogId: climbing-fishes.com
+        content: Is that really a fish going up that hill??
+        upvoteCount: 1683
+        downvoteCount: 56
+        status: Published
+        created_timestamp: 2000-01-23T04:56:07.000+00:00
+        modified_timestamp: 2000-01-23T04:56:07.000+00:00
+        media:
+          name: climbing-fish.png
+          id: climbing-fish.png
+          type: PNG/Image
+          content: byte-content
+      properties:
+        id:
+          description: The ID of this comment.
+          type: string
+        userId:
+          description: The ID of the author.
+          type: string
+        postId:
+          description: The ID of the post hosting this comment.
+          type: string
+        blogId:
+          type: string
+        parentId:
+          type: string
+        authorDisplayName:
+          type: string
+        created_timestamp:
+          format: date-time
+          type: string
+        modified_timestamp:
+          format: date-time
+          type: string
+        content:
+          type: string
+        status:
+          enum:
+          - Draft
+          - InReview
+          - Flagged
+          - Published
+          - Deleted
+          type: string
+        downvoteCount:
+          type: integer
+        upvoteCount:
+          type: integer
+        media:
+          $ref: '#/components/schemas/Media'
+      title: Comment
+      type: object
+      xml:
+        name: Comment
+    Media:
+      properties:
+        id:
+          title: id
+          type: string
+        type:
+          title: type
+          type: string
+        name:
+          title: name
+          type: string
+        content:
+          title: content
+          type: string
+      title: Media
+      type: object
+      xml:
+        name: Media
+    Post:
+      example:
+        postType: postType
+        id: id
+        title: title
+        excerpt: excerpt
+        url: url
+        content: content
+        commentStatus: Disabled
+      properties:
+        id:
+          title: id
+          type: string
+        title:
+          title: title
+          type: string
+        url:
+          title: url
+          type: string
+        excerpt:
+          title: excerpt
+          type: string
+        content:
+          title: content
+          type: string
+        commentStatus:
+          enum:
+          - Disabled
+          - RequireReview
+          - AutomateReview
+          title: commentStatus
+          type: string
+        postType:
+          title: postType
+          type: string
+      title: Post
+      type: object
+      xml:
+        name: Post
+    User:
+      example:
+        password: password
+        role:
+          capabilities:
+          - capabilities
+          - capabilities
+          name: name
+        avatarUrl: avatarUrl
+        verificationStatus:
+          isVerified: true
+          verificationMethod: verificationMethod
+          verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+        displayName: displayName
+        blogs:
+        - authToken: authToken
+          name: name
+          id: id
+          url: url
+          commentStatus: Disabled
+        - authToken: authToken
+          name: name
+          id: id
+          url: url
+          commentStatus: Disabled
+        id: id
+        niceName: niceName
+        email: email
+        username: username
+      properties:
+        id:
+          title: id
+          type: string
+        username:
+          title: username
+          type: string
+        password:
+          title: password
+          type: string
+        niceName:
+          title: niceName
+          type: string
+        avatarUrl:
+          title: avatarUrl
+          type: string
+        displayName:
+          title: displayName
+          type: string
+        email:
+          title: email
+          type: string
+        role:
+          $ref: '#/components/schemas/Role'
+        blogs:
+          items:
+            $ref: '#/components/schemas/Blog'
+          title: blogs
+          type: array
+          xml:
+            name: blog
+            wrapped: true
+        verificationStatus:
+          $ref: '#/components/schemas/VerificationStatus'
+      title: User
+      type: object
+      xml:
+        name: User
+    Role:
+      example:
+        capabilities:
+        - capabilities
+        - capabilities
+        name: name
+      properties:
+        name:
+          title: name
+          type: string
+        capabilities:
+          items:
+            type: string
+          title: capabilities
+          type: array
+      title: Role
+      type: object
+      xml:
+        name: Role
+    VerificationStatus:
+      example:
+        isVerified: true
+        verificationMethod: verificationMethod
+        verificationTimestamp: 2000-01-23T04:56:07.000+00:00
+      properties:
+        isVerified:
+          title: isVerified
+          type: boolean
+        verificationTimestamp:
+          format: date-time
+          title: verificationTimestamp
+          type: string
+        verificationMethod:
+          title: verificationMethod
+          type: string
+      title: VerificationStatus
+      type: object
+      xml:
+        name: VerificationStatus
+    Blog:
+      example:
+        authToken: authToken
+        name: name
+        id: id
+        url: url
+        commentStatus: Disabled
+      properties:
+        id:
+          title: id
+          type: string
+        name:
+          title: name
+          type: string
+        url:
+          title: url
+          type: string
+        authToken:
+          title: authToken
+          type: string
+        commentStatus:
+          enum:
+          - Disabled
+          - RequireReview
+          - AutomateReview
+          title: commentStatus
+          type: string
+      title: Blog
+      type: object
+      xml:
+        name: Blog
+    updateCommentWithForm_request:
+      properties:
+        userId:
+          type: string
+        postId:
+          type: string
+        blogId:
+          type: string
+        parentId:
+          type: string
+        authorDisplayName:
+          type: string
+        created_timestamp:
+          format: date-time
+          type: string
+        modified_timestamp:
+          format: date-time
+          type: string
+        content:
+          type: string
+        status:
+          enum:
+          - Draft
+          - InReview
+          - Flagged
+          - Published
+          type: string
+        downvoteCount:
+          type: integer
+        upvoteCount:
+          type: integer
+        media:
+          $ref: '#/components/schemas/Media'
+      type: object
+    updatePostWithForm_request:
+      properties:
+        title:
+          type: string
+        url:
+          type: string
+        excerpt:
+          type: string
+        content:
+          type: string
+        commentStatus:
+          enum:
+          - Disabled
+          - RequireReview
+          - AutomateReview
+          type: string
+        postType:
+          type: string
+      type: object
+    updateBlogWithForm_request:
+      properties:
+        name:
+          type: string
+        url:
+          type: string
+        authToken:
+          type: string
+        commentStatus:
+          enum:
+          - Disabled
+          - RequireReview
+          - AutomateReview
+          type: string
+      type: object
+  securitySchemes:
+    cm_auth:
+      flows:
+        implicit:
+          authorizationUrl: http://petstore.swagger.io/oauth/dialog
+          scopes:
+            write: modify
+            read: read
+      type: oauth2
+      x-tokenInfoFunc: gcomments.controllers.security_controller_.info_from_cm_auth
+      x-scopeValidateFunc: gcomments.controllers.security_controller_.validate_scope_cm_auth
+    api_key:
+      in: header
+      name: api_key
+      type: apiKey
+      x-apikeyInfoFunc: gcomments.controllers.security_controller_.info_from_api_key

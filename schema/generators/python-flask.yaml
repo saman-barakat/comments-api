@@ -1,0 +1,7 @@
+inputSpec: schema/comments-schema.yaml
+outputDir: servers/python-flask
+generatorName: python-flask
+additionalProperties:
+  hideGenerationTimestamp: true
+  packageName: gcomments
+  httpUserAgent: "GComments/1.0.0"
