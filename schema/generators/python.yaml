@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/python
 generatorName: python
 additionalProperties:
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

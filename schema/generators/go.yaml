@@ -4,4 +4,5 @@ generatorName: go
 additionalProperties:
   hideGenerationTimestamp: true
   outputAsLibrary: true
-  packageName: comments
+  packageName: gcomments
+  httpUserAgent: "GComments/1.0.0"

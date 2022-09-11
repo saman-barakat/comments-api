@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/ruby
 generatorName: ruby
 additionalProperties:
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

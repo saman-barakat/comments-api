@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/rust
 generatorName: rust
 additionalProperties:
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

@@ -12,3 +12,5 @@ additionalProperties:
   modelPackage: app.gcomments.model
   serializableModel: true
   x-ext-name: "GComments"
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

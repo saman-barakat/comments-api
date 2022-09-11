@@ -3,4 +3,5 @@ outputDir: servers/go
 generatorName: go-server
 additionalProperties:
   hideGenerationTimestamp: true
-  packageName: comments
+  packageName: gcomments
+  httpUserAgent: "GComments/1.0.0"

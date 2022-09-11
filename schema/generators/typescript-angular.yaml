@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/typescript-angular
 generatorName: typescript-angular
 additionalProperties:
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

@@ -4,3 +4,5 @@ generatorName: protobuf-schema
 additionalProperties:
   numberedFieldNumberList: true
   startEnumsWithUnknown: true
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

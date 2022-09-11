@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: docs/html2
 generatorName: html2
 additionalProperties:
+  packageName: "gcomments"
+  httpUserAgent: "GComments/1.0.0"

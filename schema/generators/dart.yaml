@@ -2,3 +2,5 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/dart
 generatorName: dart
 additionalProperties:
+  packageName: "comments"
+  httpUserAgent: "GComments/1.0.0"
