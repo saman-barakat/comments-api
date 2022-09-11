@@ -10,20 +10,20 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.api;
+package app.gcomment.api;
 
 import org.openapitools.client.ApiInvoker;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.*;
+import app.gcomments.model.*;
 
 import java.util.*;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.Blog;
+import app.gcomments.model.Blog;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;

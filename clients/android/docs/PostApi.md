@@ -22,7 +22,7 @@ Add a new post
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.PostApi;
+//import app.gcomment.api.PostApi;
 
 PostApi apiInstance = new PostApi();
 Post post = new Post(); // Post | Post object that needs to be added
@@ -65,7 +65,7 @@ Deletes a post
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.PostApi;
+//import app.gcomment.api.PostApi;
 
 PostApi apiInstance = new PostApi();
 String postId = null; // String | Post id to delete
@@ -112,7 +112,7 @@ Returns a single post
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.PostApi;
+//import app.gcomment.api.PostApi;
 
 PostApi apiInstance = new PostApi();
 String postId = null; // String | ID of post to return
@@ -156,7 +156,7 @@ Update an existing post
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.PostApi;
+//import app.gcomment.api.PostApi;
 
 PostApi apiInstance = new PostApi();
 Post post = new Post(); // Post | Post object that needs to be added
@@ -199,7 +199,7 @@ Updates a post with form data
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.PostApi;
+//import app.gcomment.api.PostApi;
 
 PostApi apiInstance = new PostApi();
 String postId = null; // String | ID of post that needs to be updated

@@ -22,7 +22,7 @@ Add a new blog
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.BlogApi;
+//import app.gcomment.api.BlogApi;
 
 BlogApi apiInstance = new BlogApi();
 Blog blog = new Blog(); // Blog | Blog object that needs to be added
@@ -65,7 +65,7 @@ Deletes a blog
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.BlogApi;
+//import app.gcomment.api.BlogApi;
 
 BlogApi apiInstance = new BlogApi();
 String blogId = null; // String | Blog id to delete
@@ -112,7 +112,7 @@ Returns a single blog
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.BlogApi;
+//import app.gcomment.api.BlogApi;
 
 BlogApi apiInstance = new BlogApi();
 String blogId = null; // String | ID of blog to return
@@ -156,7 +156,7 @@ Update an existing blog
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.BlogApi;
+//import app.gcomment.api.BlogApi;
 
 BlogApi apiInstance = new BlogApi();
 Blog blog = new Blog(); // Blog | Blog object that needs to be added
@@ -199,7 +199,7 @@ Updates a blog with form data
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.BlogApi;
+//import app.gcomment.api.BlogApi;
 
 BlogApi apiInstance = new BlogApi();
 String blogId = null; // String | ID of blog that needs to be updated

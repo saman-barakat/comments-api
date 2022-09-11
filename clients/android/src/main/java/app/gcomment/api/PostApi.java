@@ -10,21 +10,20 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.api;
+package app.gcomment.api;
 
 import org.openapitools.client.ApiInvoker;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.*;
+import app.gcomments.model.*;
 
 import java.util.*;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.util.Date;
-import org.openapitools.client.model.User;
+import app.gcomments.model.Post;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -36,7 +35,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
-public class UserApi {
+public class PostApi {
   String basePath = "http://localhost:8080";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
@@ -57,21 +56,16 @@ public class UserApi {
   }
 
   /**
-  * Create user
-  * This can only be done by the logged in user.
-   * @param user Created user object
+  * Add a new post
+  * 
+   * @param post Post object that needs to be added
    * @return void
   */
-  public void createUser (User user) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = user;
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'user' when calling createUser",
-        new ApiException(400, "Missing the required parameter 'user' when calling createUser"));
-    }
+  public void addPost (Post post) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = post;
 
     // create path and map variables
-    String path = "/user";
+    String path = "/post";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -80,7 +74,8 @@ public class UserApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     String[] contentTypes = {
-      "application/json"
+      "application/json",
+      "application/xml"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -93,7 +88,7 @@ public class UserApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -120,21 +115,16 @@ public class UserApi {
   }
 
       /**
-   * Create user
-   * This can only be done by the logged in user.
-   * @param user Created user object
+   * Add a new post
+   * 
+   * @param post Post object that needs to be added
   */
-  public void createUser (User user, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = user;
+  public void addPost (Post post, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = post;
 
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'user' when calling createUser",
-        new ApiException(400, "Missing the required parameter 'user' when calling createUser"));
-    }
 
     // create path and map variables
-    String path = "/user".replaceAll("\\{format\\}","json");
+    String path = "/post".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -146,7 +136,7 @@ public class UserApi {
 
 
     String[] contentTypes = {
-      "application/json"
+      "application/json","application/xml"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -161,7 +151,7 @@ public class UserApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -181,21 +171,22 @@ public class UserApi {
     }
   }
   /**
-  * Delete user
-  * This can only be done by the logged in user.
-   * @param username The name that needs to be deleted
+  * Deletes a post
+  * 
+   * @param postId Post id to delete
+   * @param apiKey 
    * @return void
   */
-  public void deleteUser (String username) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deletePost (String postId, String apiKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling deleteUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling deleteUser"));
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling deletePost",
+        new ApiException(400, "Missing the required parameter 'postId' when calling deletePost"));
     }
 
     // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -203,6 +194,7 @@ public class UserApi {
     Map<String, String> headerParams = new HashMap<String, String>();
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
+    headerParams.put("api_key", ApiInvoker.parameterToString(apiKey));
     String[] contentTypes = {
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
@@ -216,7 +208,7 @@ public class UserApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -243,21 +235,21 @@ public class UserApi {
   }
 
       /**
-   * Delete user
-   * This can only be done by the logged in user.
-   * @param username The name that needs to be deleted
+   * Deletes a post
+   * 
+   * @param postId Post id to delete   * @param apiKey 
   */
-  public void deleteUser (String username, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePost (String postId, String apiKey, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling deleteUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling deleteUser"));
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling deletePost",
+        new ApiException(400, "Missing the required parameter 'postId' when calling deletePost"));
     }
 
     // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -267,6 +259,7 @@ public class UserApi {
     Map<String, String> formParams = new HashMap<String, String>();
 
 
+    headerParams.put("api_key", ApiInvoker.parameterToString(apiKey));
 
     String[] contentTypes = {
       
@@ -284,7 +277,7 @@ public class UserApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "DELETE", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -304,21 +297,21 @@ public class UserApi {
     }
   }
   /**
-  * Get user by user name
-  * 
-   * @param username The name that needs to be fetched. Use user1 for testing.
-   * @return User
+  * Find post by ID
+  * Returns a single post
+   * @param postId ID of post to return
+   * @return Post
   */
-  public User getUserByName (String username) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Post getPostById (String postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling getUserByName",
-        new ApiException(400, "Missing the required parameter 'username' when calling getUserByName"));
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling getPostById",
+        new ApiException(400, "Missing the required parameter 'postId' when calling getPostById"));
     }
 
     // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -339,12 +332,12 @@ public class UserApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (User) ApiInvoker.deserialize(localVarResponse, "", User.class);
+         return (Post) ApiInvoker.deserialize(localVarResponse, "", Post.class);
       } else {
          return null;
       }
@@ -366,21 +359,21 @@ public class UserApi {
   }
 
       /**
-   * Get user by user name
-   * 
-   * @param username The name that needs to be fetched. Use user1 for testing.
+   * Find post by ID
+   * Returns a single post
+   * @param postId ID of post to return
   */
-  public void getUserByName (String username, final Response.Listener<User> responseListener, final Response.ErrorListener errorListener) {
+  public void getPostById (String postId, final Response.Listener<Post> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling getUserByName",
-        new ApiException(400, "Missing the required parameter 'username' when calling getUserByName"));
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling getPostById",
+        new ApiException(400, "Missing the required parameter 'postId' when calling getPostById"));
     }
 
     // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -407,7 +400,7 @@ public class UserApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "api_key" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
@@ -415,7 +408,7 @@ public class UserApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((User) ApiInvoker.deserialize(localVarResponse,  "", User.class));
+              responseListener.onResponse((Post) ApiInvoker.deserialize(localVarResponse,  "", Post.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -431,157 +424,16 @@ public class UserApi {
     }
   }
   /**
-  * Logs user into the system
+  * Update an existing post
   * 
-   * @param username The user name for login
-   * @param password The password for login in clear text
-   * @return String
-  */
-  public String loginUser (String username, String password) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = null;
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling loginUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling loginUser"));
-    }
-    // verify the required parameter 'password' is set
-    if (password == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'password' when calling loginUser",
-        new ApiException(400, "Missing the required parameter 'password' when calling loginUser"));
-    }
-
-    // create path and map variables
-    String path = "/user/login";
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "username", username));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "password", password));
-    String[] contentTypes = {
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-    }
-
-    String[] authNames = new String[] {  };
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
-      if (localVarResponse != null) {
-         return (String) ApiInvoker.deserialize(localVarResponse, "", String.class);
-      } else {
-         return null;
-      }
-    } catch (ApiException ex) {
-       throw ex;
-    } catch (InterruptedException ex) {
-       throw ex;
-    } catch (ExecutionException ex) {
-      if (ex.getCause() instanceof VolleyError) {
-        VolleyError volleyError = (VolleyError)ex.getCause();
-        if (volleyError.networkResponse != null) {
-          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-        }
-      }
-      throw ex;
-    } catch (TimeoutException ex) {
-      throw ex;
-    }
-  }
-
-      /**
-   * Logs user into the system
-   * 
-   * @param username The user name for login   * @param password The password for login in clear text
-  */
-  public void loginUser (String username, String password, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = null;
-
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling loginUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling loginUser"));
-    }
-    // verify the required parameter 'password' is set
-    if (password == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'password' when calling loginUser",
-        new ApiException(400, "Missing the required parameter 'password' when calling loginUser"));
-    }
-
-    // create path and map variables
-    String path = "/user/login".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "username", username));
-    queryParams.addAll(ApiInvoker.parameterToPairs("", "password", password));
-
-
-    String[] contentTypes = {
-      
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-          }
-
-    String[] authNames = new String[] {  };
-
-    try {
-      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
-        new Response.Listener<String>() {
-          @Override
-          public void onResponse(String localVarResponse) {
-            try {
-              responseListener.onResponse((String) ApiInvoker.deserialize(localVarResponse,  "", String.class));
-            } catch (ApiException exception) {
-               errorListener.onErrorResponse(new VolleyError(exception));
-            }
-          }
-      }, new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-            errorListener.onErrorResponse(error);
-          }
-      });
-    } catch (ApiException ex) {
-      errorListener.onErrorResponse(new VolleyError(ex));
-    }
-  }
-  /**
-  * Logs out current logged in user session
-  * 
+   * @param post Post object that needs to be added
    * @return void
   */
-  public void logoutUser () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = null;
+  public void updatePost (Post post) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = post;
 
     // create path and map variables
-    String path = "/user/logout";
+    String path = "/post";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -590,6 +442,8 @@ public class UserApi {
     // form params
     Map<String, String> formParams = new HashMap<String, String>();
     String[] contentTypes = {
+      "application/json",
+      "application/xml"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -602,132 +456,7 @@ public class UserApi {
       // normal form params
     }
 
-    String[] authNames = new String[] {  };
-
-    try {
-      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
-      if (localVarResponse != null) {
-         return ;
-      } else {
-         return ;
-      }
-    } catch (ApiException ex) {
-       throw ex;
-    } catch (InterruptedException ex) {
-       throw ex;
-    } catch (ExecutionException ex) {
-      if (ex.getCause() instanceof VolleyError) {
-        VolleyError volleyError = (VolleyError)ex.getCause();
-        if (volleyError.networkResponse != null) {
-          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
-        }
-      }
-      throw ex;
-    } catch (TimeoutException ex) {
-      throw ex;
-    }
-  }
-
-      /**
-   * Logs out current logged in user session
-   * 
-
-  */
-  public void logoutUser (final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = null;
-
-
-    // create path and map variables
-    String path = "/user/logout".replaceAll("\\{format\\}","json");
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-
-
-
-    String[] contentTypes = {
-      
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      
-
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-          }
-
-    String[] authNames = new String[] {  };
-
-    try {
-      apiInvoker.invokeAPI(basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames,
-        new Response.Listener<String>() {
-          @Override
-          public void onResponse(String localVarResponse) {
-              responseListener.onResponse(localVarResponse);
-          }
-      }, new Response.ErrorListener() {
-          @Override
-          public void onErrorResponse(VolleyError error) {
-            errorListener.onErrorResponse(error);
-          }
-      });
-    } catch (ApiException ex) {
-      errorListener.onErrorResponse(new VolleyError(ex));
-    }
-  }
-  /**
-  * Updated user
-  * This can only be done by the logged in user.
-   * @param username name that need to be updated
-   * @param user Updated user object
-   * @return void
-  */
-  public void updateUser (String username, User user) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = user;
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling updateUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling updateUser"));
-    }
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'user' when calling updateUser",
-        new ApiException(400, "Missing the required parameter 'user' when calling updateUser"));
-    }
-
-    // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
-
-    // query params
-    List<Pair> queryParams = new ArrayList<Pair>();
-    // header params
-    Map<String, String> headerParams = new HashMap<String, String>();
-    // form params
-    Map<String, String> formParams = new HashMap<String, String>();
-    String[] contentTypes = {
-      "application/json"
-    };
-    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
-
-    if (contentType.startsWith("multipart/form-data")) {
-      // file uploading
-      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      HttpEntity httpEntity = localVarBuilder.build();
-      postBody = httpEntity;
-    } else {
-      // normal form params
-    }
-
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType, authNames);
@@ -754,26 +483,16 @@ public class UserApi {
   }
 
       /**
-   * Updated user
-   * This can only be done by the logged in user.
-   * @param username name that need to be updated   * @param user Updated user object
+   * Update an existing post
+   * 
+   * @param post Post object that needs to be added
   */
-  public void updateUser (String username, User user, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = user;
+  public void updatePost (Post post, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = post;
 
-    // verify the required parameter 'username' is set
-    if (username == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'username' when calling updateUser",
-        new ApiException(400, "Missing the required parameter 'username' when calling updateUser"));
-    }
-    // verify the required parameter 'user' is set
-    if (user == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'user' when calling updateUser",
-        new ApiException(400, "Missing the required parameter 'user' when calling updateUser"));
-    }
 
     // create path and map variables
-    String path = "/user/{username}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "username" + "\\}", apiInvoker.escapeString(username.toString()));
+    String path = "/post".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -785,7 +504,7 @@ public class UserApi {
 
 
     String[] contentTypes = {
-      "application/json"
+      "application/json","application/xml"
     };
     String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
 
@@ -800,10 +519,194 @@ public class UserApi {
       // normal form params
           }
 
-    String[] authNames = new String[] {  };
+    String[] authNames = new String[] { "cm_auth" };
 
     try {
       apiInvoker.invokeAPI(basePath, path, "PUT", queryParams, postBody, headerParams, formParams, contentType, authNames,
+        new Response.Listener<String>() {
+          @Override
+          public void onResponse(String localVarResponse) {
+              responseListener.onResponse(localVarResponse);
+          }
+      }, new Response.ErrorListener() {
+          @Override
+          public void onErrorResponse(VolleyError error) {
+            errorListener.onErrorResponse(error);
+          }
+      });
+    } catch (ApiException ex) {
+      errorListener.onErrorResponse(new VolleyError(ex));
+    }
+  }
+  /**
+  * Updates a post with form data
+  * 
+   * @param postId ID of post that needs to be updated
+   * @param title 
+   * @param url 
+   * @param excerpt 
+   * @param content 
+   * @param commentStatus 
+   * @param postType 
+   * @return void
+  */
+  public void updatePostWithForm (String postId, String title, String url, String excerpt, String content, String commentStatus, String postType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = null;
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling updatePostWithForm",
+        new ApiException(400, "Missing the required parameter 'postId' when calling updatePostWithForm"));
+    }
+
+    // create path and map variables
+    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+    String[] contentTypes = {
+      "application/x-www-form-urlencoded"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (url != null) {
+        localVarBuilder.addTextBody("url", ApiInvoker.parameterToString(url), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (excerpt != null) {
+        localVarBuilder.addTextBody("excerpt", ApiInvoker.parameterToString(excerpt), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (content != null) {
+        localVarBuilder.addTextBody("content", ApiInvoker.parameterToString(content), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (commentStatus != null) {
+        localVarBuilder.addTextBody("commentStatus", ApiInvoker.parameterToString(commentStatus), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (postType != null) {
+        localVarBuilder.addTextBody("postType", ApiInvoker.parameterToString(postType), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+      formParams.put("title", ApiInvoker.parameterToString(title));
+      formParams.put("url", ApiInvoker.parameterToString(url));
+      formParams.put("excerpt", ApiInvoker.parameterToString(excerpt));
+      formParams.put("content", ApiInvoker.parameterToString(content));
+      formParams.put("commentStatus", ApiInvoker.parameterToString(commentStatus));
+      formParams.put("postType", ApiInvoker.parameterToString(postType));
+    }
+
+    String[] authNames = new String[] { "cm_auth" };
+
+    try {
+      String localVarResponse = apiInvoker.invokeAPI (basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames);
+      if (localVarResponse != null) {
+         return ;
+      } else {
+         return ;
+      }
+    } catch (ApiException ex) {
+       throw ex;
+    } catch (InterruptedException ex) {
+       throw ex;
+    } catch (ExecutionException ex) {
+      if (ex.getCause() instanceof VolleyError) {
+        VolleyError volleyError = (VolleyError)ex.getCause();
+        if (volleyError.networkResponse != null) {
+          throw new ApiException(volleyError.networkResponse.statusCode, volleyError.getMessage());
+        }
+      }
+      throw ex;
+    } catch (TimeoutException ex) {
+      throw ex;
+    }
+  }
+
+      /**
+   * Updates a post with form data
+   * 
+   * @param postId ID of post that needs to be updated   * @param title    * @param url    * @param excerpt    * @param content    * @param commentStatus    * @param postType 
+  */
+  public void updatePostWithForm (String postId, String title, String url, String excerpt, String content, String commentStatus, String postType, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = null;
+
+    // verify the required parameter 'postId' is set
+    if (postId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling updatePostWithForm",
+        new ApiException(400, "Missing the required parameter 'postId' when calling updatePostWithForm"));
+    }
+
+    // create path and map variables
+    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+
+    // query params
+    List<Pair> queryParams = new ArrayList<Pair>();
+    // header params
+    Map<String, String> headerParams = new HashMap<String, String>();
+    // form params
+    Map<String, String> formParams = new HashMap<String, String>();
+
+
+
+    String[] contentTypes = {
+      "application/x-www-form-urlencoded"
+    };
+    String contentType = contentTypes.length > 0 ? contentTypes[0] : "application/json";
+
+    if (contentType.startsWith("multipart/form-data")) {
+      // file uploading
+      MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
+      
+      if (title != null) {
+        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (url != null) {
+        localVarBuilder.addTextBody("url", ApiInvoker.parameterToString(url), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (excerpt != null) {
+        localVarBuilder.addTextBody("excerpt", ApiInvoker.parameterToString(excerpt), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (content != null) {
+        localVarBuilder.addTextBody("content", ApiInvoker.parameterToString(content), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (commentStatus != null) {
+        localVarBuilder.addTextBody("commentStatus", ApiInvoker.parameterToString(commentStatus), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (postType != null) {
+        localVarBuilder.addTextBody("postType", ApiInvoker.parameterToString(postType), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+
+      HttpEntity httpEntity = localVarBuilder.build();
+      postBody = httpEntity;
+    } else {
+      // normal form params
+      formParams.put("title", ApiInvoker.parameterToString(title));
+formParams.put("url", ApiInvoker.parameterToString(url));
+formParams.put("excerpt", ApiInvoker.parameterToString(excerpt));
+formParams.put("content", ApiInvoker.parameterToString(content));
+formParams.put("commentStatus", ApiInvoker.parameterToString(commentStatus));
+formParams.put("postType", ApiInvoker.parameterToString(postType));
+    }
+
+    String[] authNames = new String[] { "cm_auth" };
+
+    try {
+      apiInvoker.invokeAPI(basePath, path, "POST", queryParams, postBody, headerParams, formParams, contentType, authNames,
         new Response.Listener<String>() {
           @Override
           public void onResponse(String localVarResponse) {

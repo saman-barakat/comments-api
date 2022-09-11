@@ -10,17 +10,18 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.model;
+package app.gcomments.model;
 
+import app.gcomments.model.Blog;
+import app.gcomments.model.Role;
+import app.gcomments.model.VerificationStatus;
 import java.util.*;
-import org.openapitools.client.model.Blog;
-import org.openapitools.client.model.Role;
-import org.openapitools.client.model.VerificationStatus;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
 @ApiModel(description = "")
-public class User {
+public class User implements Serializable {
   
   @SerializedName("id")
   private String id = null;

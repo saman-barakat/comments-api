@@ -22,7 +22,7 @@ Add a new comment
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.CommentApi;
+//import app.gcomment.api.CommentApi;
 
 CommentApi apiInstance = new CommentApi();
 Comment comment = new Comment(); // Comment | Comment object that needs to be added
@@ -65,7 +65,7 @@ Deletes a comment
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.CommentApi;
+//import app.gcomment.api.CommentApi;
 
 CommentApi apiInstance = new CommentApi();
 String commentId = null; // String | Comment id to delete
@@ -112,7 +112,7 @@ Returns a single comment
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.CommentApi;
+//import app.gcomment.api.CommentApi;
 
 CommentApi apiInstance = new CommentApi();
 String commentId = null; // String | ID of comment to return
@@ -156,7 +156,7 @@ Update an existing comment
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.CommentApi;
+//import app.gcomment.api.CommentApi;
 
 CommentApi apiInstance = new CommentApi();
 Comment comment = new Comment(); // Comment | Comment object that needs to be added
@@ -199,7 +199,7 @@ Updates a comment with form data
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.CommentApi;
+//import app.gcomment.api.CommentApi;
 
 CommentApi apiInstance = new CommentApi();
 String commentId = null; // String | ID of comment that needs to be updated

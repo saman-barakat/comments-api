@@ -58,7 +58,7 @@ Please follow the [installation](#installation) instruction and execute the foll
 
 ```java
 
-import org.openapitools.client.api.BlogApi;
+import app.gcomment.api.BlogApi;
 
 public class BlogApiExample {
 

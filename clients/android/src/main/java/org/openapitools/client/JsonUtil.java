@@ -22,7 +22,7 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Date;
-import org.openapitools.client.model.*;
+import app.gcomments.model.*;
 
 public class JsonUtil {
   public static GsonBuilder gsonBuilder;

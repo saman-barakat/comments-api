@@ -10,14 +10,15 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.model;
+package app.gcomments.model;
 
 import java.util.Date;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
 @ApiModel(description = "")
-public class VerificationStatus {
+public class VerificationStatus implements Serializable {
   
   @SerializedName("isVerified")
   private Boolean isVerified = null;

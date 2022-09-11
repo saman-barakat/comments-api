@@ -10,20 +10,22 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.api;
+package app.gcomment.api;
 
 import org.openapitools.client.ApiInvoker;
 import org.openapitools.client.ApiException;
 import org.openapitools.client.Pair;
 
-import org.openapitools.client.model.*;
+import app.gcomments.model.*;
 
 import java.util.*;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import org.openapitools.client.model.Post;
+import app.gcomments.model.Comment;
+import java.util.Date;
+import app.gcomments.model.Media;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -35,7 +37,7 @@ import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
-public class PostApi {
+public class CommentApi {
   String basePath = "http://localhost:8080";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
@@ -56,16 +58,21 @@ public class PostApi {
   }
 
   /**
-  * Add a new post
+  * Add a new comment
   * 
-   * @param post Post object that needs to be added
+   * @param comment Comment object that needs to be added
    * @return void
   */
-  public void addPost (Post post) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = post;
+  public void addComment (Comment comment) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = comment;
+    // verify the required parameter 'comment' is set
+    if (comment == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling addComment",
+        new ApiException(400, "Missing the required parameter 'comment' when calling addComment"));
+    }
 
     // create path and map variables
-    String path = "/post";
+    String path = "/comment";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -115,16 +122,21 @@ public class PostApi {
   }
 
       /**
-   * Add a new post
+   * Add a new comment
    * 
-   * @param post Post object that needs to be added
+   * @param comment Comment object that needs to be added
   */
-  public void addPost (Post post, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = post;
+  public void addComment (Comment comment, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = comment;
 
+    // verify the required parameter 'comment' is set
+    if (comment == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling addComment",
+        new ApiException(400, "Missing the required parameter 'comment' when calling addComment"));
+    }
 
     // create path and map variables
-    String path = "/post".replaceAll("\\{format\\}","json");
+    String path = "/comment".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -171,22 +183,22 @@ public class PostApi {
     }
   }
   /**
-  * Deletes a post
+  * Deletes a comment
   * 
-   * @param postId Post id to delete
+   * @param commentId Comment id to delete
    * @param apiKey 
    * @return void
   */
-  public void deletePost (String postId, String apiKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteComment (String commentId, String apiKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling deletePost",
-        new ApiException(400, "Missing the required parameter 'postId' when calling deletePost"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling deleteComment",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling deleteComment"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -235,21 +247,21 @@ public class PostApi {
   }
 
       /**
-   * Deletes a post
+   * Deletes a comment
    * 
-   * @param postId Post id to delete   * @param apiKey 
+   * @param commentId Comment id to delete   * @param apiKey 
   */
-  public void deletePost (String postId, String apiKey, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteComment (String commentId, String apiKey, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling deletePost",
-        new ApiException(400, "Missing the required parameter 'postId' when calling deletePost"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling deleteComment",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling deleteComment"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -297,21 +309,21 @@ public class PostApi {
     }
   }
   /**
-  * Find post by ID
-  * Returns a single post
-   * @param postId ID of post to return
-   * @return Post
+  * Find comment by ID
+  * Returns a single comment
+   * @param commentId ID of comment to return
+   * @return Comment
   */
-  public Post getPostById (String postId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Comment getCommentById (String commentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling getPostById",
-        new ApiException(400, "Missing the required parameter 'postId' when calling getPostById"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling getCommentById",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling getCommentById"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -337,7 +349,7 @@ public class PostApi {
     try {
       String localVarResponse = apiInvoker.invokeAPI (basePath, path, "GET", queryParams, postBody, headerParams, formParams, contentType, authNames);
       if (localVarResponse != null) {
-         return (Post) ApiInvoker.deserialize(localVarResponse, "", Post.class);
+         return (Comment) ApiInvoker.deserialize(localVarResponse, "", Comment.class);
       } else {
          return null;
       }
@@ -359,21 +371,21 @@ public class PostApi {
   }
 
       /**
-   * Find post by ID
-   * Returns a single post
-   * @param postId ID of post to return
+   * Find comment by ID
+   * Returns a single comment
+   * @param commentId ID of comment to return
   */
-  public void getPostById (String postId, final Response.Listener<Post> responseListener, final Response.ErrorListener errorListener) {
+  public void getCommentById (String commentId, final Response.Listener<Comment> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling getPostById",
-        new ApiException(400, "Missing the required parameter 'postId' when calling getPostById"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling getCommentById",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling getCommentById"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -408,7 +420,7 @@ public class PostApi {
           @Override
           public void onResponse(String localVarResponse) {
             try {
-              responseListener.onResponse((Post) ApiInvoker.deserialize(localVarResponse,  "", Post.class));
+              responseListener.onResponse((Comment) ApiInvoker.deserialize(localVarResponse,  "", Comment.class));
             } catch (ApiException exception) {
                errorListener.onErrorResponse(new VolleyError(exception));
             }
@@ -424,16 +436,21 @@ public class PostApi {
     }
   }
   /**
-  * Update an existing post
+  * Update an existing comment
   * 
-   * @param post Post object that needs to be added
+   * @param comment Comment object that needs to be added
    * @return void
   */
-  public void updatePost (Post post) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
-    Object postBody = post;
+  public void updateComment (Comment comment) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+    Object postBody = comment;
+    // verify the required parameter 'comment' is set
+    if (comment == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling updateComment",
+        new ApiException(400, "Missing the required parameter 'comment' when calling updateComment"));
+    }
 
     // create path and map variables
-    String path = "/post";
+    String path = "/comment";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -483,16 +500,21 @@ public class PostApi {
   }
 
       /**
-   * Update an existing post
+   * Update an existing comment
    * 
-   * @param post Post object that needs to be added
+   * @param comment Comment object that needs to be added
   */
-  public void updatePost (Post post, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
-    Object postBody = post;
+  public void updateComment (Comment comment, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+    Object postBody = comment;
 
+    // verify the required parameter 'comment' is set
+    if (comment == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling updateComment",
+        new ApiException(400, "Missing the required parameter 'comment' when calling updateComment"));
+    }
 
     // create path and map variables
-    String path = "/post".replaceAll("\\{format\\}","json");
+    String path = "/comment".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -539,27 +561,33 @@ public class PostApi {
     }
   }
   /**
-  * Updates a post with form data
+  * Updates a comment with form data
   * 
-   * @param postId ID of post that needs to be updated
-   * @param title 
-   * @param url 
-   * @param excerpt 
+   * @param commentId ID of comment that needs to be updated
+   * @param userId 
+   * @param postId 
+   * @param blogId 
+   * @param parentId 
+   * @param authorDisplayName 
+   * @param createdTimestamp 
+   * @param modifiedTimestamp 
    * @param content 
-   * @param commentStatus 
-   * @param postType 
+   * @param status 
+   * @param downvoteCount 
+   * @param upvoteCount 
+   * @param media 
    * @return void
   */
-  public void updatePostWithForm (String postId, String title, String url, String excerpt, String content, String commentStatus, String postType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateCommentWithForm (String commentId, String userId, String postId, String blogId, String parentId, String authorDisplayName, Date createdTimestamp, Date modifiedTimestamp, String content, String status, Integer downvoteCount, Integer upvoteCount, Media media) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling updatePostWithForm",
-        new ApiException(400, "Missing the required parameter 'postId' when calling updatePostWithForm"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling updateCommentWithForm",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling updateCommentWithForm"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -575,34 +603,58 @@ public class PostApi {
     if (contentType.startsWith("multipart/form-data")) {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
-      if (title != null) {
-        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (userId != null) {
+        localVarBuilder.addTextBody("userId", ApiInvoker.parameterToString(userId), ApiInvoker.TEXT_PLAIN_UTF8);
       }
-      if (url != null) {
-        localVarBuilder.addTextBody("url", ApiInvoker.parameterToString(url), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (postId != null) {
+        localVarBuilder.addTextBody("postId", ApiInvoker.parameterToString(postId), ApiInvoker.TEXT_PLAIN_UTF8);
       }
-      if (excerpt != null) {
-        localVarBuilder.addTextBody("excerpt", ApiInvoker.parameterToString(excerpt), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (blogId != null) {
+        localVarBuilder.addTextBody("blogId", ApiInvoker.parameterToString(blogId), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (parentId != null) {
+        localVarBuilder.addTextBody("parentId", ApiInvoker.parameterToString(parentId), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (authorDisplayName != null) {
+        localVarBuilder.addTextBody("authorDisplayName", ApiInvoker.parameterToString(authorDisplayName), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (createdTimestamp != null) {
+        localVarBuilder.addTextBody("created_timestamp", ApiInvoker.parameterToString(createdTimestamp), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (modifiedTimestamp != null) {
+        localVarBuilder.addTextBody("modified_timestamp", ApiInvoker.parameterToString(modifiedTimestamp), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       if (content != null) {
         localVarBuilder.addTextBody("content", ApiInvoker.parameterToString(content), ApiInvoker.TEXT_PLAIN_UTF8);
       }
-      if (commentStatus != null) {
-        localVarBuilder.addTextBody("commentStatus", ApiInvoker.parameterToString(commentStatus), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (status != null) {
+        localVarBuilder.addTextBody("status", ApiInvoker.parameterToString(status), ApiInvoker.TEXT_PLAIN_UTF8);
       }
-      if (postType != null) {
-        localVarBuilder.addTextBody("postType", ApiInvoker.parameterToString(postType), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (downvoteCount != null) {
+        localVarBuilder.addTextBody("downvoteCount", ApiInvoker.parameterToString(downvoteCount), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (upvoteCount != null) {
+        localVarBuilder.addTextBody("upvoteCount", ApiInvoker.parameterToString(upvoteCount), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      if (media != null) {
+        localVarBuilder.addTextBody("media", ApiInvoker.parameterToString(media), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       HttpEntity httpEntity = localVarBuilder.build();
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("title", ApiInvoker.parameterToString(title));
-      formParams.put("url", ApiInvoker.parameterToString(url));
-      formParams.put("excerpt", ApiInvoker.parameterToString(excerpt));
+      formParams.put("userId", ApiInvoker.parameterToString(userId));
+      formParams.put("postId", ApiInvoker.parameterToString(postId));
+      formParams.put("blogId", ApiInvoker.parameterToString(blogId));
+      formParams.put("parentId", ApiInvoker.parameterToString(parentId));
+      formParams.put("authorDisplayName", ApiInvoker.parameterToString(authorDisplayName));
+      formParams.put("created_timestamp", ApiInvoker.parameterToString(createdTimestamp));
+      formParams.put("modified_timestamp", ApiInvoker.parameterToString(modifiedTimestamp));
       formParams.put("content", ApiInvoker.parameterToString(content));
-      formParams.put("commentStatus", ApiInvoker.parameterToString(commentStatus));
-      formParams.put("postType", ApiInvoker.parameterToString(postType));
+      formParams.put("status", ApiInvoker.parameterToString(status));
+      formParams.put("downvoteCount", ApiInvoker.parameterToString(downvoteCount));
+      formParams.put("upvoteCount", ApiInvoker.parameterToString(upvoteCount));
+      formParams.put("media", ApiInvoker.parameterToString(media));
     }
 
     String[] authNames = new String[] { "cm_auth" };
@@ -632,21 +684,21 @@ public class PostApi {
   }
 
       /**
-   * Updates a post with form data
+   * Updates a comment with form data
    * 
-   * @param postId ID of post that needs to be updated   * @param title    * @param url    * @param excerpt    * @param content    * @param commentStatus    * @param postType 
+   * @param commentId ID of comment that needs to be updated   * @param userId    * @param postId    * @param blogId    * @param parentId    * @param authorDisplayName    * @param createdTimestamp    * @param modifiedTimestamp    * @param content    * @param status    * @param downvoteCount    * @param upvoteCount    * @param media 
   */
-  public void updatePostWithForm (String postId, String title, String url, String excerpt, String content, String commentStatus, String postType, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateCommentWithForm (String commentId, String userId, String postId, String blogId, String parentId, String authorDisplayName, Date createdTimestamp, Date modifiedTimestamp, String content, String status, Integer downvoteCount, Integer upvoteCount, Media media, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'postId' is set
-    if (postId == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'postId' when calling updatePostWithForm",
-        new ApiException(400, "Missing the required parameter 'postId' when calling updatePostWithForm"));
+    // verify the required parameter 'commentId' is set
+    if (commentId == null) {
+      VolleyError error = new VolleyError("Missing the required parameter 'commentId' when calling updateCommentWithForm",
+        new ApiException(400, "Missing the required parameter 'commentId' when calling updateCommentWithForm"));
     }
 
     // create path and map variables
-    String path = "/post/{postId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "postId" + "\\}", apiInvoker.escapeString(postId.toString()));
+    String path = "/comment/{commentId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "commentId" + "\\}", apiInvoker.escapeString(commentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -666,28 +718,52 @@ public class PostApi {
       // file uploading
       MultipartEntityBuilder localVarBuilder = MultipartEntityBuilder.create();
       
-      if (title != null) {
-        localVarBuilder.addTextBody("title", ApiInvoker.parameterToString(title), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (userId != null) {
+        localVarBuilder.addTextBody("userId", ApiInvoker.parameterToString(userId), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
-      if (url != null) {
-        localVarBuilder.addTextBody("url", ApiInvoker.parameterToString(url), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (postId != null) {
+        localVarBuilder.addTextBody("postId", ApiInvoker.parameterToString(postId), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
-      if (excerpt != null) {
-        localVarBuilder.addTextBody("excerpt", ApiInvoker.parameterToString(excerpt), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (blogId != null) {
+        localVarBuilder.addTextBody("blogId", ApiInvoker.parameterToString(blogId), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (parentId != null) {
+        localVarBuilder.addTextBody("parentId", ApiInvoker.parameterToString(parentId), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (authorDisplayName != null) {
+        localVarBuilder.addTextBody("authorDisplayName", ApiInvoker.parameterToString(authorDisplayName), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (createdTimestamp != null) {
+        localVarBuilder.addTextBody("created_timestamp", ApiInvoker.parameterToString(createdTimestamp), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (modifiedTimestamp != null) {
+        localVarBuilder.addTextBody("modified_timestamp", ApiInvoker.parameterToString(modifiedTimestamp), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
       if (content != null) {
         localVarBuilder.addTextBody("content", ApiInvoker.parameterToString(content), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
-      if (commentStatus != null) {
-        localVarBuilder.addTextBody("commentStatus", ApiInvoker.parameterToString(commentStatus), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (status != null) {
+        localVarBuilder.addTextBody("status", ApiInvoker.parameterToString(status), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
-      if (postType != null) {
-        localVarBuilder.addTextBody("postType", ApiInvoker.parameterToString(postType), ApiInvoker.TEXT_PLAIN_UTF8);
+      if (downvoteCount != null) {
+        localVarBuilder.addTextBody("downvoteCount", ApiInvoker.parameterToString(downvoteCount), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (upvoteCount != null) {
+        localVarBuilder.addTextBody("upvoteCount", ApiInvoker.parameterToString(upvoteCount), ApiInvoker.TEXT_PLAIN_UTF8);
+      }
+      
+      if (media != null) {
+        localVarBuilder.addTextBody("media", ApiInvoker.parameterToString(media), ApiInvoker.TEXT_PLAIN_UTF8);
       }
       
 
@@ -695,12 +771,18 @@ public class PostApi {
       postBody = httpEntity;
     } else {
       // normal form params
-      formParams.put("title", ApiInvoker.parameterToString(title));
-formParams.put("url", ApiInvoker.parameterToString(url));
-formParams.put("excerpt", ApiInvoker.parameterToString(excerpt));
+      formParams.put("userId", ApiInvoker.parameterToString(userId));
+formParams.put("postId", ApiInvoker.parameterToString(postId));
+formParams.put("blogId", ApiInvoker.parameterToString(blogId));
+formParams.put("parentId", ApiInvoker.parameterToString(parentId));
+formParams.put("authorDisplayName", ApiInvoker.parameterToString(authorDisplayName));
+formParams.put("created_timestamp", ApiInvoker.parameterToString(createdTimestamp));
+formParams.put("modified_timestamp", ApiInvoker.parameterToString(modifiedTimestamp));
 formParams.put("content", ApiInvoker.parameterToString(content));
-formParams.put("commentStatus", ApiInvoker.parameterToString(commentStatus));
-formParams.put("postType", ApiInvoker.parameterToString(postType));
+formParams.put("status", ApiInvoker.parameterToString(status));
+formParams.put("downvoteCount", ApiInvoker.parameterToString(downvoteCount));
+formParams.put("upvoteCount", ApiInvoker.parameterToString(upvoteCount));
+formParams.put("media", ApiInvoker.parameterToString(media));
     }
 
     String[] authNames = new String[] { "cm_auth" };

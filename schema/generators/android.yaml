@@ -2,3 +2,13 @@ inputSpec: schema/comments-schema.yaml
 outputDir: clients/android
 generatorName: android
 additionalProperties:
+  androidBuildToolsVersion: "30.0.2"
+  androidGradleVersion: "7.5.1"
+  androidSdkVersion: "13"
+  apiPackage: app.gcomment.api
+  artifactVersion: "1.0.0"
+  enumUnknownDefaultCase: true
+  library: volley
+  modelPackage: app.gcomments.model
+  serializableModel: true
+  x-ext-name: "GComments"

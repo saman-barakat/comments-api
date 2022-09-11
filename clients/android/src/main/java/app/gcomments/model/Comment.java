@@ -10,15 +10,16 @@
  * Do not edit the class manually.
  */
 
-package org.openapitools.client.model;
+package app.gcomments.model;
 
+import app.gcomments.model.Media;
 import java.util.Date;
-import org.openapitools.client.model.Media;
 import io.swagger.annotations.*;
 import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
 
 @ApiModel(description = "")
-public class Comment {
+public class Comment implements Serializable {
   
   @SerializedName("id")
   private String id = null;

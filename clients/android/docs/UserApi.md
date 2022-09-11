@@ -25,7 +25,7 @@ This can only be done by the logged in user.
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 User user = new User(); // User | Created user object
@@ -70,7 +70,7 @@ This can only be done by the logged in user.
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 String username = null; // String | The name that needs to be deleted
@@ -113,7 +113,7 @@ Get user by user name
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 String username = null; // String | The name that needs to be fetched. Use user1 for testing.
@@ -157,7 +157,7 @@ Logs user into the system
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 String username = null; // String | The user name for login
@@ -203,7 +203,7 @@ Logs out current logged in user session
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 try {
@@ -244,7 +244,7 @@ This can only be done by the logged in user.
 
 ```java
 // Import classes:
-//import org.openapitools.client.api.UserApi;
+//import app.gcomment.api.UserApi;
 
 UserApi apiInstance = new UserApi();
 String username = null; // String | name that need to be updated
