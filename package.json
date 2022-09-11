@@ -4,6 +4,7 @@
   "description": "Comments API",
   "main": "index.js",
   "scripts": {
+    "build": "npx @openapitools/openapi-generator-cli batch --clean schema/generators/*.yaml",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
