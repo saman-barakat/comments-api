@@ -17,10 +17,10 @@ package openapitools;
 
 message VerificationStatus {
 
-  bool isVerified = 433571348;
+  bool isVerified = 1;
 
-  string verificationTimestamp = 517660359;
+  string verificationTimestamp = 2;
 
-  string verificationMethod = 490712357;
+  string verificationMethod = 3;
 
 }

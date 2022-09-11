@@ -17,24 +17,25 @@ package openapitools;
 
 message Post {
 
-  string id = 3355;
+  string id = 1;
 
-  string title = 110371416;
+  string title = 2;
 
-  string url = 116079;
+  string url = 3;
 
-  string excerpt = 247618177;
+  string excerpt = 4;
 
-  string content = 414659706;
+  string content = 5;
 
   enum CommentStatusEnum {
-    CommentStatusEnum_DISABLED = 0;
-    CommentStatusEnum_REQUIREREVIEW = 1;
-    CommentStatusEnum_AUTOMATEREVIEW = 2;
+    CommentStatusEnum_UNKNOWN = 0;
+    CommentStatusEnum_DISABLED = 1;
+    CommentStatusEnum_REQUIREREVIEW = 2;
+    CommentStatusEnum_AUTOMATEREVIEW = 3;
   }
 
-  CommentStatusEnum commentStatus = 375511249;
+  CommentStatusEnum commentStatus = 6;
 
-  string postType = 220154875;
+  string postType = 7;
 
 }

@@ -17,8 +17,8 @@ package openapitools;
 
 message Role {
 
-  string name = 3373707;
+  string name = 1;
 
-  repeated string capabilities = 413855820;
+  repeated string capabilities = 2;
 
 }

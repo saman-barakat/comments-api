@@ -18,37 +18,38 @@ import public "models/media.proto";
 
 message Comment {
 
-  string id = 3355;
+  string id = 1;
 
-  string userId = 299159995;
+  string userId = 2;
 
-  string postId = 445580838;
+  string postId = 3;
 
-  string blogId = 312420261;
+  string blogId = 4;
 
-  string parentId = 101420903;
+  string parentId = 5;
 
-  string authorDisplayName = 485586975;
+  string authorDisplayName = 6;
 
-  string createdUnderscoretimestamp = 429168751;
+  string createdUnderscoretimestamp = 7;
 
-  string modifiedUnderscoretimestamp = 79326742;
+  string modifiedUnderscoretimestamp = 8;
 
-  string content = 414659706;
+  string content = 9;
 
   enum StatusEnum {
-    StatusEnum_DRAFT = 0;
-    StatusEnum_INREVIEW = 1;
-    StatusEnum_FLAGGED = 2;
-    StatusEnum_PUBLISHED = 3;
+    StatusEnum_UNKNOWN = 0;
+    StatusEnum_DRAFT = 1;
+    StatusEnum_INREVIEW = 2;
+    StatusEnum_FLAGGED = 3;
+    StatusEnum_PUBLISHED = 4;
   }
 
-  StatusEnum status = 355610639;
+  StatusEnum status = 10;
 
-  int32 downvoteCount = 103726623;
+  int32 downvoteCount = 11;
 
-  int32 upvoteCount = 144343030;
+  int32 upvoteCount = 12;
 
-  Media media = 103772132;
+  Media media = 13;
 
 }
