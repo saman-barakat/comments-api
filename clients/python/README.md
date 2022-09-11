@@ -1,4 +1,4 @@
-# openapi-client
+# gcomments
 APIs for creating and managing comments
 
 
@@ -25,7 +25,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import openapi_client
+import gcomments
 ```
 
 ### Setuptools
@@ -39,7 +39,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import openapi_client
+import gcomments
 ```
 
 ## Getting Started
@@ -49,13 +49,13 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 
 import time
-import openapi_client
+import gcomments
 from pprint import pprint
-from openapi_client.api import blog_api
-from openapi_client.model.blog import Blog
+from gcomments.api import blog_api
+from gcomments.model.blog import Blog
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -65,14 +65,14 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog = Blog(
@@ -86,7 +86,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Add a new blog
         api_instance.add_blog(blog=blog)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->add_blog: %s\n" % e)
 ```
 
@@ -156,21 +156,21 @@ support@comments.app
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in openapi_client.apis and openapi_client.models may fail with a
+If the OpenAPI document is large, imports in gcomments.apis and gcomments.models may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from openapi_client.api.default_api import DefaultApi`
-- `from openapi_client.model.pet import Pet`
+- `from gcomments.api.default_api import DefaultApi`
+- `from gcomments.model.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
-import openapi_client
-from openapi_client.apis import *
-from openapi_client.models import *
+import gcomments
+from gcomments.apis import *
+from gcomments.models import *
 ```
 

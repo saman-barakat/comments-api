@@ -12,7 +12,7 @@
 
 syntax = "proto3";
 
-package openapitools;
+package gcomments;
 
 
 message Post {

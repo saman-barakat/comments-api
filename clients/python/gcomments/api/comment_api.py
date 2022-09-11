@@ -12,8 +12,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from gcomments.api_client import ApiClient, Endpoint as _Endpoint
+from gcomments.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -22,8 +22,8 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.comment import Comment
-from openapi_client.model.media import Media
+from gcomments.model.comment import Comment
+from gcomments.model.media import Media
 
 
 class CommentApi(object):

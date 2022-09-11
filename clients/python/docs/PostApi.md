@@ -1,4 +1,4 @@
-# openapi_client.PostApi
+# gcomments.PostApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -22,13 +22,13 @@ Add a new post
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import post_api
-from openapi_client.model.post import Post
+import gcomments
+from gcomments.api import post_api
+from gcomments.model.post import Post
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -38,13 +38,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = post_api.PostApi(api_client)
     post = Post(
@@ -62,7 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Add a new post
         api_instance.add_post(post=post)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->add_post: %s\n" % e)
 ```
 
@@ -107,12 +107,12 @@ Deletes a post
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import post_api
+import gcomments
+from gcomments.api import post_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -122,13 +122,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = post_api.PostApi(api_client)
     post_id = "postId_example" # str | Post id to delete
@@ -138,7 +138,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a post
         api_instance.delete_post(post_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->delete_post: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -146,7 +146,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a post
         api_instance.delete_post(post_id, api_key=api_key)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->delete_post: %s\n" % e)
 ```
 
@@ -195,13 +195,13 @@ Returns a single post
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import post_api
-from openapi_client.model.post import Post
+import gcomments
+from gcomments.api import post_api
+from gcomments.model.post import Post
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -217,7 +217,7 @@ configuration.api_key['api_key'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = post_api.PostApi(api_client)
     post_id = "postId_example" # str | ID of post to return
@@ -227,7 +227,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Find post by ID
         api_response = api_instance.get_post_by_id(post_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->get_post_by_id: %s\n" % e)
 ```
 
@@ -273,13 +273,13 @@ Update an existing post
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import post_api
-from openapi_client.model.post import Post
+import gcomments
+from gcomments.api import post_api
+from gcomments.model.post import Post
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -289,13 +289,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = post_api.PostApi(api_client)
     post = Post(
@@ -313,7 +313,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Update an existing post
         api_instance.update_post(post=post)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->update_post: %s\n" % e)
 ```
 
@@ -360,12 +360,12 @@ Updates a post with form data
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import post_api
+import gcomments
+from gcomments.api import post_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -375,13 +375,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = post_api.PostApi(api_client)
     post_id = "postId_example" # str | ID of post that needs to be updated
@@ -396,7 +396,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a post with form data
         api_instance.update_post_with_form(post_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->update_post_with_form: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -404,7 +404,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a post with form data
         api_instance.update_post_with_form(post_id, title=title, url=url, excerpt=excerpt, content=content, comment_status=comment_status, post_type=post_type)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling PostApi->update_post_with_form: %s\n" % e)
 ```
 

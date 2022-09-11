@@ -21,7 +21,7 @@ import uuid
 
 from dateutil.parser import parse
 
-from openapi_client.exceptions import (
+from gcomments.exceptions import (
     ApiKeyError,
     ApiAttributeError,
     ApiTypeError,

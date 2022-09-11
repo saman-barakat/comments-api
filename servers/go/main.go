@@ -14,25 +14,25 @@ import (
 	"log"
 	"net/http"
 
-	comments "github.com/GIT_USER_ID/GIT_REPO_ID/go"
+	gcomments "github.com/GIT_USER_ID/GIT_REPO_ID/go"
 )
 
 func main() {
 	log.Printf("Server started")
 
-	BlogApiService := comments.NewBlogApiService()
-	BlogApiController := comments.NewBlogApiController(BlogApiService)
+	BlogApiService := gcomments.NewBlogApiService()
+	BlogApiController := gcomments.NewBlogApiController(BlogApiService)
 
-	CommentApiService := comments.NewCommentApiService()
-	CommentApiController := comments.NewCommentApiController(CommentApiService)
+	CommentApiService := gcomments.NewCommentApiService()
+	CommentApiController := gcomments.NewCommentApiController(CommentApiService)
 
-	PostApiService := comments.NewPostApiService()
-	PostApiController := comments.NewPostApiController(PostApiService)
+	PostApiService := gcomments.NewPostApiService()
+	PostApiController := gcomments.NewPostApiController(PostApiService)
 
-	UserApiService := comments.NewUserApiService()
-	UserApiController := comments.NewUserApiController(UserApiService)
+	UserApiService := gcomments.NewUserApiService()
+	UserApiController := gcomments.NewUserApiController(UserApiService)
 
-	router := comments.NewRouter(BlogApiController, CommentApiController, PostApiController, UserApiController)
+	router := gcomments.NewRouter(BlogApiController, CommentApiController, PostApiController, UserApiController)
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 }

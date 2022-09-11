@@ -12,7 +12,7 @@
 
 syntax = "proto3";
 
-package openapitools.services.userservice;
+package gcomments.services.userservice;
 
 import "google/protobuf/empty.proto";
 import public "models/user.proto";

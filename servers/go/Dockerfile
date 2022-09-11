@@ -6,9 +6,9 @@ COPY main.go .
 ENV CGO_ENABLED=0
 RUN go get -d -v ./...
 
-RUN go build -a -installsuffix cgo -o comments .
+RUN go build -a -installsuffix cgo -o gcomments .
 
 FROM scratch AS runtime
-COPY --from=build /go/src/comments ./
+COPY --from=build /go/src/gcomments ./
 EXPOSE 8080/tcp
-ENTRYPOINT ["./comments"]
+ENTRYPOINT ["./gcomments"]

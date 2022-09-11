@@ -1,4 +1,4 @@
-# openapi_client.CommentApi
+# gcomments.CommentApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -22,13 +22,13 @@ Add a new comment
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import comment_api
-from openapi_client.model.comment import Comment
+import gcomments
+from gcomments.api import comment_api
+from gcomments.model.comment import Comment
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -38,13 +38,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comment_api.CommentApi(api_client)
     comment = Comment(
@@ -72,7 +72,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Add a new comment
         api_instance.add_comment(comment)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->add_comment: %s\n" % e)
 ```
 
@@ -117,12 +117,12 @@ Deletes a comment
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import comment_api
+import gcomments
+from gcomments.api import comment_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -132,13 +132,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comment_api.CommentApi(api_client)
     comment_id = "commentId_example" # str | Comment id to delete
@@ -148,7 +148,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a comment
         api_instance.delete_comment(comment_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->delete_comment: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -156,7 +156,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a comment
         api_instance.delete_comment(comment_id, api_key=api_key)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->delete_comment: %s\n" % e)
 ```
 
@@ -205,13 +205,13 @@ Returns a single comment
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import comment_api
-from openapi_client.model.comment import Comment
+import gcomments
+from gcomments.api import comment_api
+from gcomments.model.comment import Comment
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -227,7 +227,7 @@ configuration.api_key['api_key'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comment_api.CommentApi(api_client)
     comment_id = "commentId_example" # str | ID of comment to return
@@ -237,7 +237,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Find comment by ID
         api_response = api_instance.get_comment_by_id(comment_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->get_comment_by_id: %s\n" % e)
 ```
 
@@ -283,13 +283,13 @@ Update an existing comment
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import comment_api
-from openapi_client.model.comment import Comment
+import gcomments
+from gcomments.api import comment_api
+from gcomments.model.comment import Comment
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -299,13 +299,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comment_api.CommentApi(api_client)
     comment = Comment(
@@ -333,7 +333,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Update an existing comment
         api_instance.update_comment(comment)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->update_comment: %s\n" % e)
 ```
 
@@ -380,13 +380,13 @@ Updates a comment with form data
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import comment_api
-from openapi_client.model.media import Media
+import gcomments
+from gcomments.api import comment_api
+from gcomments.model.media import Media
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -396,13 +396,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = comment_api.CommentApi(api_client)
     comment_id = "commentId_example" # str | ID of comment that needs to be updated
@@ -428,7 +428,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a comment with form data
         api_instance.update_comment_with_form(comment_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->update_comment_with_form: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -436,7 +436,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a comment with form data
         api_instance.update_comment_with_form(comment_id, user_id=user_id, post_id=post_id, blog_id=blog_id, parent_id=parent_id, author_display_name=author_display_name, created_timestamp=created_timestamp, modified_timestamp=modified_timestamp, content=content, status=status, downvote_count=downvote_count, upvote_count=upvote_count, media=media)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling CommentApi->update_comment_with_form: %s\n" % e)
 ```
 

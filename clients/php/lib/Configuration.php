@@ -101,7 +101,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'OpenAPI-Generator/1.0.0/PHP';
+    protected $userAgent = 'GComments/1.0.0';
 
     /**
      * Debug switch (default set to false)

@@ -1,4 +1,4 @@
-# OpenAPIClient-php
+# gcomments
 
 APIs for creating and managing comments
 
@@ -38,7 +38,7 @@ Download the files and include `autoload.php`:
 
 ```php
 <?php
-require_once('/path/to/OpenAPIClient-php/vendor/autoload.php');
+require_once('/path/to/gcomments/vendor/autoload.php');
 ```
 
 ## Getting Started

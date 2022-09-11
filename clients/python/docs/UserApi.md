@@ -1,4 +1,4 @@
-# openapi_client.UserApi
+# gcomments.UserApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -24,19 +24,19 @@ This can only be done by the logged in user.
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
-from openapi_client.model.user import User
+import gcomments
+from gcomments.api import user_api
+from gcomments.model.user import User
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     user = User(
@@ -73,7 +73,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         # Create user
         api_instance.create_user(user)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->create_user: %s\n" % e)
 ```
 
@@ -118,18 +118,18 @@ This can only be done by the logged in user.
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
+import gcomments
+from gcomments.api import user_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     username = "username_example" # str | The name that needs to be deleted
@@ -138,7 +138,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         # Delete user
         api_instance.delete_user(username)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->delete_user: %s\n" % e)
 ```
 
@@ -182,19 +182,19 @@ Get user by user name
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
-from openapi_client.model.user import User
+import gcomments
+from gcomments.api import user_api
+from gcomments.model.user import User
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     username = "username_example" # str | The name that needs to be fetched. Use user1 for testing.
@@ -204,7 +204,7 @@ with openapi_client.ApiClient() as api_client:
         # Get user by user name
         api_response = api_instance.get_user_by_name(username)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->get_user_by_name: %s\n" % e)
 ```
 
@@ -249,18 +249,18 @@ Logs user into the system
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
+import gcomments
+from gcomments.api import user_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     username = "username_example" # str | The user name for login
@@ -271,7 +271,7 @@ with openapi_client.ApiClient() as api_client:
         # Logs user into the system
         api_response = api_instance.login_user(username, password)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->login_user: %s\n" % e)
 ```
 
@@ -316,18 +316,18 @@ Logs out current logged in user session
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
+import gcomments
+from gcomments.api import user_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
@@ -335,7 +335,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         # Logs out current logged in user session
         api_instance.logout_user()
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->logout_user: %s\n" % e)
 ```
 
@@ -377,19 +377,19 @@ This can only be done by the logged in user.
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import user_api
-from openapi_client.model.user import User
+import gcomments
+from gcomments.api import user_api
+from gcomments.model.user import User
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
+with gcomments.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     username = "username_example" # str | name that need to be updated
@@ -427,7 +427,7 @@ with openapi_client.ApiClient() as api_client:
     try:
         # Updated user
         api_instance.update_user(username, user)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling UserApi->update_user: %s\n" % e)
 ```
 

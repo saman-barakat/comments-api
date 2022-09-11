@@ -1,4 +1,4 @@
-# Go API Server for comments
+# Go API Server for gcomments
 
 APIs for creating and managing comments
 
@@ -26,10 +26,10 @@ go run main.go
 
 To run the server in a docker container
 ```
-docker build --network=host -t comments .
+docker build --network=host -t gcomments .
 ```
 
 Once image is built use
 ```
-docker run --rm -it comments
+docker run --rm -it gcomments
 ```

@@ -21,10 +21,10 @@ from urllib.parse import quote
 from urllib3.fields import RequestField
 
 
-from openapi_client import rest
-from openapi_client.configuration import Configuration
-from openapi_client.exceptions import ApiTypeError, ApiValueError, ApiException
-from openapi_client.model_utils import (
+from gcomments import rest
+from gcomments.configuration import Configuration
+from gcomments.exceptions import ApiTypeError, ApiValueError, ApiException
+from gcomments.model_utils import (
     ModelNormal,
     ModelSimple,
     ModelComposed,
@@ -77,7 +77,7 @@ class ApiClient(object):
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/1.0.0/python'
+        self.user_agent = 'GComments/1.0.0'
 
     def __enter__(self):
         return self

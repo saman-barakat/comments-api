@@ -1,4 +1,4 @@
-# openapi_client.BlogApi
+# gcomments.BlogApi
 
 All URIs are relative to *http://localhost:8080*
 
@@ -22,13 +22,13 @@ Add a new blog
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import blog_api
-from openapi_client.model.blog import Blog
+import gcomments
+from gcomments.api import blog_api
+from gcomments.model.blog import Blog
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -38,13 +38,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog = Blog(
@@ -60,7 +60,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Add a new blog
         api_instance.add_blog(blog=blog)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->add_blog: %s\n" % e)
 ```
 
@@ -105,12 +105,12 @@ Deletes a blog
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import blog_api
+import gcomments
+from gcomments.api import blog_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -120,13 +120,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog_id = "blogId_example" # str | Blog id to delete
@@ -136,7 +136,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a blog
         api_instance.delete_blog(blog_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->delete_blog: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -144,7 +144,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Deletes a blog
         api_instance.delete_blog(blog_id, api_key=api_key)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->delete_blog: %s\n" % e)
 ```
 
@@ -193,13 +193,13 @@ Returns a single blog
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import blog_api
-from openapi_client.model.blog import Blog
+import gcomments
+from gcomments.api import blog_api
+from gcomments.model.blog import Blog
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -215,7 +215,7 @@ configuration.api_key['api_key'] = 'YOUR_API_KEY'
 # configuration.api_key_prefix['api_key'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog_id = "blogId_example" # str | ID of blog to return
@@ -225,7 +225,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # Find blog by ID
         api_response = api_instance.get_blog_by_id(blog_id)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->get_blog_by_id: %s\n" % e)
 ```
 
@@ -271,13 +271,13 @@ Update an existing blog
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import blog_api
-from openapi_client.model.blog import Blog
+import gcomments
+from gcomments.api import blog_api
+from gcomments.model.blog import Blog
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -287,13 +287,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog = Blog(
@@ -309,7 +309,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Update an existing blog
         api_instance.update_blog(blog=blog)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->update_blog: %s\n" % e)
 ```
 
@@ -356,12 +356,12 @@ Updates a blog with form data
 
 ```python
 import time
-import openapi_client
-from openapi_client.api import blog_api
+import gcomments
+from gcomments.api import blog_api
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8080
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 
@@ -371,13 +371,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: cm_auth
-configuration = openapi_client.Configuration(
+configuration = gcomments.Configuration(
     host = "http://localhost:8080"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with gcomments.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = blog_api.BlogApi(api_client)
     blog_id = "blogId_example" # str | ID of blog that needs to be updated
@@ -390,7 +390,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a blog with form data
         api_instance.update_blog_with_form(blog_id)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->update_blog_with_form: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -398,7 +398,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     try:
         # Updates a blog with form data
         api_instance.update_blog_with_form(blog_id, name=name, url=url, auth_token=auth_token, comment_status=comment_status)
-    except openapi_client.ApiException as e:
+    except gcomments.ApiException as e:
         print("Exception when calling BlogApi->update_blog_with_form: %s\n" % e)
 ```
 
