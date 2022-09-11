@@ -4,3 +4,14 @@
 ### Batch generate by running:
 
 `npx @openapitools/openapi-generator-cli batch schema/generators/*.yaml `
+
+Why No to Bazel?
+Given that this project touches multiple languages and platform, there is the strong allure to use a platform agnostic build system.
+- Poor tooling support
+- High cost of initial setup given need for MVP
+- Worth revisiting in a year time.
+
+Why No to Protos?
+Protos would help avoid/minimize language-specific ideosyncrasies in the implementation and usage of the models.
+- Very poor tooling support.
+- Poor to no support for critical OpenAPI features like security.

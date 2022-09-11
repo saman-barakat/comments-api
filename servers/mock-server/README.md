@@ -8,7 +8,9 @@ To start the server run:
 
 `./servers/mock-server/openapi-mock serve --specification-url schema/comments-schema.yaml`
 
-Which would begin service the spec on `http://localhost:8080`
+Which would begin service the spec on `http://localhost:8080`.
+
+You can test the server by importing the spec into PostMan.
 
 
 
