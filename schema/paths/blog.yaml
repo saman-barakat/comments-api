@@ -1,13 +1,12 @@
-#Comment path:
-
+# /blog path:
     post:
       tags:
-        - comment
-      summary: Add a new comment
-      operationId: addComment
+        - blog
+      summary: Add a new blog
+      operationId: addBlog
       responses:
         '200':
-          description: Comment created successfully
+          description: Blog created successfully
         '405':
           description: Invalid input
       security:
@@ -15,19 +14,19 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../openapi/components/requestBodies/Comment'
+        $ref: '../openapi/components/requestBodies/Blog'
     put:
       tags:
-        - comment
-      summary: Update an existing comment
-      operationId: updateComment
+        - blog
+      summary: Update an existing blog
+      operationId: updateBlog
       responses:
         '200':
-          description: Comment updated successfully
+          description: Blog updated successfully
         '400':
           description: Invalid ID supplied
         '404':
-          description: Comment not found
+          description: Blog not found
         '405':
           description: Validation exception
       security:
@@ -35,4 +34,4 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../openapi/components/requestBodies/Comment'
+        $ref: '../comments-schema/components/requestBodies/Blog'

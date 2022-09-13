@@ -1,12 +1,13 @@
-# /post path:
+#Comment path:
+
     post:
       tags:
-        - post
-      summary: Add a new post
-      operationId: addPost
+        - comment
+      summary: Add a new comment
+      operationId: addComment
       responses:
         '200':
-          description: Post created successfully
+          description: Comment created successfully
         '405':
           description: Invalid input
       security:
@@ -14,15 +15,15 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../openapi/components/requestBodies/Post'
+        $ref: '../comments-schema/components/requestBodies/Comment'
     put:
       tags:
-        - post
-      summary: Update an existing post
-      operationId: updatePost
+        - comment
+      summary: Update an existing comment
+      operationId: updateComment
       responses:
         '200':
-          description: Post updated successfully
+          description: Comment updated successfully
         '400':
           description: Invalid ID supplied
         '404':
@@ -34,4 +35,4 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../openapi/components/requestBodies/Post'
+        $ref: '../comments-schema/components/requestBodies/Comment'

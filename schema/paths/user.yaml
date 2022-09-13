@@ -12,7 +12,7 @@
         content:
           application/json:
             schema:
-              $ref: '../openapi/components/schemas/User'
+              $ref: '../comments-schema/components/schemas/User'
         description: Created user object
         required: true
  

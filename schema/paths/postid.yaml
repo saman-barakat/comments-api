@@ -1,48 +1,48 @@
-# '/blog/{blogId}' path:
+#  '/post/{postId}' path:
     get:
       tags:
-        - blog
-      summary: Find blog by ID
-      description: Returns a single blog
-      operationId: getBlogById
+        - post
+      summary: Find post by ID
+      description: Returns a single post
+      operationId: getPostById
       parameters:
-        - name: blogId
+        - name: postId
           in: path
-          description: ID of blog to return
+          description: ID of post to return
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: blog fetched successfully
+          description: Post fetched successfully
           content:
             application/json:
               schema:
-                $ref: '../openapi/components/schemas/Blog'
+                $ref: '../comments-schema/components/schemas/Post'
             application/xml:
               schema:
-                $ref: '../openapi/components/schemas/Blog'
+                $ref: '#/components/schemas/Post'
         '400':
           description: Invalid ID supplied
         '404':
-          description: Blog not found
+          description: Comment not found
       security:
         - api_key: []
     post:
       tags:
-        - blog
-      summary: Updates a blog with form data
-      operationId: updateBlogWithForm
+        - post
+      summary: Updates a post with form data
+      operationId: updatePostWithForm
       parameters:
-        - name: blogId
+        - name: postId
           in: path
-          description: ID of blog that needs to be updated
+          description: ID of post that needs to be updated
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Blog updated successfully
+          description: Post updated successfully
         '405':
           description: Invalid input
       security:
@@ -55,42 +55,46 @@
             schema:
               type: object
               properties:
-                name:
+                title:
                   type: string
                 url:
                   type: string
-                authToken:
+                excerpt:
+                  type: string
+                content:
                   type: string
                 commentStatus:
                   type: boolean
                   enum:
                   - Disabled
                   - RequireReview      
-                  - AutomateReview           
+                  - AutomateReview 
+                postType:
+                  type: string 
     delete:
       tags:
-        - blog
-      summary: Deletes a blog
-      operationId: deleteBlog
+        - post
+      summary: Deletes a post
+      operationId: deletePost
       parameters:
         - name: api_key
           in: header
           required: false
           schema:
             type: string
-        - name: blogId
+        - name: postId
           in: path
-          description: Blog id to delete
+          description: Post id to delete
           required: true
           schema:
             type: string
       responses:
         '200':
-          description: Blog deleted successfully
+          description: Post deleted successfully
         '400':
           description: Invalid ID supplied
         '404':
-          description: Blog not found
+          description: Post not found
       security:
         - cm_auth:
             - 'write'

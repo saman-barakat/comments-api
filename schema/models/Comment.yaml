@@ -33,7 +33,7 @@
         upvoteCount:
           type: integer
         media:
-          $ref: '../openapi/components/schemas/Media'    
+          $ref: '../comments-schema/components/schemas/Media'    
       xml:
         name: Comment
       example:

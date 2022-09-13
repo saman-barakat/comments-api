@@ -18,10 +18,10 @@
           content:
             application/json:
               schema:
-                $ref: '../openapi/components/schemas/Comment'
+                $ref: '../comments-schema/components/schemas/Comment'
             application/xml:
               schema:
-                $ref: '../openapi/components/schemas/Comment'
+                $ref: '../comments-schema/components/schemas/Comment'
         '400':
           description: Invalid ID supplied
         '404':
@@ -85,7 +85,7 @@
                 upvoteCount:
                   type: integer
                 media:
-                  $ref: '#/components/schemas/Media' 
+                  $ref: '../comments-schema/components/schemas/Media' 
     delete:
       tags:
         - comment
