@@ -1,12 +1,14 @@
 openapi: 3.0.0
 info:
-  description: |
-    This is a sample server.
   version: "1.0.0"
-  title: Open APi
-  termsOfService: 'http://swagger.io/terms/'
+  title: GComments
+  description: |
+    APIs for creating and managing comments
+  termsOfService: 'https://comments.app/tos'
   contact:
-    email: email@gmail.com
+    name: API Support
+    url: https://comments.app/support
+    email: support@comments.app
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
