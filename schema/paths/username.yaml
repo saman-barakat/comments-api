@@ -17,10 +17,10 @@
           content:
             application/json:
               schema:
-                $ref: '../comments-schema/components/schemas/User'
+                $ref: '../comments-schema.yaml#/components/schemas/User'
             application/xml:
               schema:
-                $ref: '../comments-schema/components/schemas/User'
+                $ref: '../comments-schema.yaml#/components/schemas/User'
         '400':
           description: Invalid username supplied
         '404':
@@ -47,7 +47,7 @@
         content:
           application/json:
             schema:
-              $ref: '../comments-schema/components/schemas/User'
+              $ref: '../comments-schema.yaml#/components/schemas/User'
         description: Updated user object
         required: true
     delete:

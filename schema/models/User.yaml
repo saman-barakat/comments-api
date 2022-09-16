@@ -16,15 +16,15 @@
         email:
           type: string
         role:
-          $ref: '../comments-schema/components/schemas/Role'
+          $ref: '../comments-schema.yaml#/components/schemas/Role'
         blogs:
           type: array
           xml:
             name: blog
             wrapped: true
           items:
-            $ref: '../comments-schema/components/schemas/Blog'
+            $ref: '../comments-schema.yaml#/components/schemas/Blog'
         verificationStatus:
-          $ref: '../comments-schema/components/schemas/VerificationStatus'
+          $ref: '../comments-schema.yaml#/components/schemas/VerificationStatus'
       xml:
         name: User

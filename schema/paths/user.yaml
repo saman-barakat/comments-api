@@ -12,7 +12,7 @@
         content:
           application/json:
             schema:
-              $ref: '../comments-schema/components/schemas/User'
+              $ref: '../comments-schema.yaml#/components/schemas/User'
         description: Created user object
         required: true
  

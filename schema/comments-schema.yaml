@@ -47,9 +47,9 @@ paths:
 components:
   schemas:
     Comment:
-      $ref: "./models/Comment.yaml"
+      $ref: './models/Comment.yaml'
     Media:
-      $ref: "./models/Media.yaml"
+      $ref: './models/Media.yaml'
     Post:
       $ref: "./models/Post.yaml"
     User:

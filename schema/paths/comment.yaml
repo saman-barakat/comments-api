@@ -15,7 +15,7 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../comments-schema/components/requestBodies/Comment'
+        $ref: '../comments-schema.yaml#/components/requestBodies/Comment'
     put:
       tags:
         - comment
@@ -35,4 +35,4 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../comments-schema/components/requestBodies/Comment'
+        $ref: '../comments-schema.yaml#/components/requestBodies/Comment'

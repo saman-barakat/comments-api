@@ -18,10 +18,7 @@
           content:
             application/json:
               schema:
-                $ref: '../comments-schema/components/schemas/Post'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Post'
+                $ref: '../comments-schema.yaml#/components/schemas/Post'
         '400':
           description: Invalid ID supplied
         '404':

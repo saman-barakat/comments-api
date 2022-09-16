@@ -18,10 +18,10 @@
           content:
             application/json:
               schema:
-                $ref: '../comments-schema/components/schemas/Blog'
+                $ref: '../comments-schema.yaml#/components/schemas/Blog'
             application/xml:
               schema:
-                $ref: '../comments-schema/components/schemas/Blog'
+                $ref: '../comments-schema.yaml#/components/schemas/Blog'
         '400':
           description: Invalid ID supplied
         '404':

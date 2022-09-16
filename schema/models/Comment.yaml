@@ -1,55 +1,55 @@
 #    Comment:
-      type: object
-      properties:
-        id:
-          type: string
-        userId:
-          type: string
-        postId:
-          type: string
-        blogId:
-          type: string
-        parentId:
-          type: string
-        authorDisplayName:
-          type: string
-        created_timestamp:
-          type: string
-          format: date-time
-        modified_timestamp:
-          type: string
-          format: date-time
-        content:
-          type: string
-        status:
-          type: boolean
-          enum:
-            - Draft
-            - InReview        
-            - Flagged
-            - Published
-        downvoteCount:
-          type: integer
-        upvoteCount:
-          type: integer
-        media:
-          $ref: '../comments-schema/components/schemas/Media'    
-      xml:
-        name: Comment
-      example:
-        id: sWT2a92sQX12qH
-        userId: johnSmith@
-        authorDisplayName: John Smith
-        postId: 'how to make a fish climb a mountain'
-        blogId: 'climbing-fishes.com'
-        content: 'Is that really a fish going up that hill??'
-        upvoteCount: 1683
-        downvoteCount: 56
-        status: Published
-        created_timestamp: 2000-01-23T04:56:07.000+00:00
-        modified_timestamp: 2000-01-23T04:56:07.000+00:00
-        media:
-          name: climbing-fish.png
-          id: climbing-fish.png
-          type: PNG/Image
-          content: byte-content
+type: object
+properties:
+  id:
+    type: string
+  userId:
+    type: string
+  postId:
+    type: string
+  blogId:
+    type: string
+  parentId:
+    type: string
+  authorDisplayName:
+    type: string
+  created_timestamp:
+    type: string
+    format: date-time
+  modified_timestamp:
+    type: string
+    format: date-time
+  content:
+    type: string
+  status:
+    type: boolean
+    enum:
+      - Draft
+      - InReview        
+      - Flagged
+      - Published
+  downvoteCount:
+    type: integer
+  upvoteCount:
+    type: integer
+  media:
+    $ref: '../comments-schema.yaml#/components/schemas/Media'    
+xml:
+  name: Comment
+example:
+  id: sWT2a92sQX12qH
+  userId: johnSmith@
+  authorDisplayName: John Smith
+  postId: 'how to make a fish climb a mountain'
+  blogId: 'climbing-fishes.com'
+  content: 'Is that really a fish going up that hill??'
+  upvoteCount: 1683
+  downvoteCount: 56
+  status: Published
+  created_timestamp: 2000-01-23T04:56:07.000+00:00
+  modified_timestamp: 2000-01-23T04:56:07.000+00:00
+  media:
+    name: climbing-fish.png
+    id: climbing-fish.png
+    type: PNG/Image
+    content: byte-content

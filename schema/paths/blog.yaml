@@ -14,7 +14,7 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../openapi/components/requestBodies/Blog'
+        $ref: '../comments-schema.yaml#/components/requestBodies/Blog'
     put:
       tags:
         - blog
@@ -34,4 +34,4 @@
             - 'write'
             - 'read'
       requestBody:
-        $ref: '../comments-schema/components/requestBodies/Blog'
+        $ref: '../comments-schema.yaml#/components/requestBodies/Blog'
